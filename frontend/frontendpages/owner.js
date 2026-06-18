@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:5000";
+const API = "https://pharmasync-74to.onrender.com";
 const OWNER_ID = localStorage.getItem("user_id");
 
 
@@ -329,7 +329,7 @@ async function deleteMedicine(id) {
 
     await fetch(
 
-        `http://127.0.0.1:5000/delete-medicine/${id}`,
+        `https://pharmasync-74to.onrender.com/delete-medicine/${id}`,
 
         {
             method: "DELETE"
@@ -384,7 +384,7 @@ async function rejectOrder(orderId){
 async function loadStock() {
 
     const response = await fetch(
-        `http://127.0.0.1:5000/owner-medicines/${OWNER_ID}`
+        `https://pharmasync-74to.onrender.com/owner-medicines/${OWNER_ID}`
     );
 
     const medicines = await response.json();
@@ -750,7 +750,7 @@ loadTopMedicines();
 async function loadSalesAnalytics(){
 
     const response =
-    await fetch(`http://127.0.0.1:5000/sales-analytics/${OWNER_ID}`);
+    await fetch(`https://pharmasync-74to.onrender.com/sales-analytics/${OWNER_ID}`);
 
     const data =
     await response.json();
@@ -767,7 +767,7 @@ async function loadSalesAnalytics(){
 async function loadTopMedicines(){
 
     const response =
-    await fetch(`http://127.0.0.1:5000/top-medicines/${OWNER_ID}`);
+    await fetch(`https://pharmasync-74to.onrender.com/top-medicines/${OWNER_ID}`);
 
     const data =
     await response.json();
@@ -838,7 +838,7 @@ async function loadExpiryAlerts(){
 
     const response =
     await fetch(
-    `http://127.0.0.1:5000/expiry-alerts/${OWNER_ID}`
+    `https://pharmasync-74to.onrender.com/expiry-alerts/${OWNER_ID}`
     );
 
     const data =
@@ -947,7 +947,7 @@ loadOrders();
 async function loadOrders(){
 
     const response = await fetch(
-        `http://127.0.0.1:5000/owner-orders/${OWNER_ID}`
+        `https://pharmasync-74to.onrender.com/owner-orders/${OWNER_ID}`
     );
 
     const orders = await response.json();
@@ -1005,7 +1005,7 @@ async function acceptOrder(orderId){
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/accept-order/${orderId}`,
+        `https://pharmasync-74to.onrender.com/accept-order/${orderId}`,
 
         {
             method:"POST"
@@ -1024,7 +1024,7 @@ async function rejectOrder(orderId){
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/reject-order/${orderId}`,
+        `https://pharmasync-74to.onrender.com/reject-order/${orderId}`,
 
         {
             method:"POST"
@@ -1042,7 +1042,7 @@ async function rejectOrder(orderId){
 async function assignDelivery(id){
 
     await fetch(
-        `http://127.0.0.1:5000/assign-delivery/${id}`,
+        `https://pharmasync-74to.onrender.com/assign-delivery/${id}`,
         {
             method:"POST"
         }
@@ -1053,7 +1053,7 @@ async function assignDelivery(id){
 async function outForDelivery(id){
 
     await fetch(
-        `http://127.0.0.1:5000/out-for-delivery/${id}`,
+        `https://pharmasync-74to.onrender.com/out-for-delivery/${id}`,
         {
             method:"POST"
         }
@@ -1064,7 +1064,7 @@ async function outForDelivery(id){
 async function deliverOrder(id){
 
     await fetch(
-        `http://127.0.0.1:5000/deliver-order/${id}`,
+        `https://pharmasync-74to.onrender.com/deliver-order/${id}`,
         {
             method:"POST"
         }

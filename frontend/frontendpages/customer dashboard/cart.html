@@ -504,7 +504,7 @@ async function placeOrder(){
 }));
 
     const response = await fetch(
-        "http://127.0.0.1:5000/order",
+        "https://pharmasync-74to.onrender.com/order",
         {
             method:"POST",
 
@@ -531,7 +531,7 @@ function loadOrders(){
     const userId =
     localStorage.getItem("user_id");
 
-    fetch(`http://127.0.0.1:5000/user-orders/${USER_ID}`)
+    fetch(`https://pharmasync-74to.onrender.com/user-orders/${USER_ID}`)
 
     .then(res => res.json())
 
@@ -619,7 +619,7 @@ if(order[3] == "Rejected")
 function cancelOrder(orderId){
 
     fetch(
-        `http://127.0.0.1:5000/cancel-order/${orderId}`,
+        `https://pharmasync-74to.onrender.com/cancel-order/${orderId}`,
         {
             method:"POST"
         }
@@ -644,7 +644,7 @@ async function deleteOrder(orderId){
         return;
 
     await fetch(
-        `http://127.0.0.1:5000/delete-order/${orderId}`,
+        `https://pharmasync-74to.onrender.com/delete-order/${orderId}`,
         {
             method:"DELETE"
         }

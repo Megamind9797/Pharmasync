@@ -17,7 +17,7 @@ async function registerUser() {
 
     const response = await fetch(
 
-        "http://127.0.0.1:5000/register",
+        "https://pharmasync-74to.onrender.com/register",
 
         {
 
@@ -63,7 +63,7 @@ async function loginUser() {
 
     const response = await fetch(
 
-        "http://127.0.0.1:5000/login",
+        "https://pharmasync-74to.onrender.com/login",
 
         {
 
@@ -140,7 +140,7 @@ async function addMedicine() {
 
     const response = await fetch(
 
-        "http://127.0.0.1:5000/add-medicine",
+        "https://pharmasync-74to.onrender.com/add-medicine",
 
         {
 
@@ -178,7 +178,7 @@ async function searchMedicine() {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/search?name=${name}`
+        `https://pharmasync-74to.onrender.com/search?name=${name}`
 
     )
 
@@ -252,7 +252,7 @@ async function placeOrder(medicine_id) {
 
     const response = await fetch(
 
-        "http://127.0.0.1:5000/order",
+        "https://pharmasync-74to.onrender.com/order",
 
         {
 
@@ -288,7 +288,7 @@ async function loadOrders() {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/order-history/${user_id}`
+        `https://pharmasync-74to.onrender.com/order-history/${user_id}`
 
     )
 
@@ -348,7 +348,7 @@ async function cancelOrder(order_id) {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/cancel-order/${order_id}`,
+        `https://pharmasync-74to.onrender.com/cancel-order/${order_id}`,
 
         {
             method:"POST"
@@ -400,7 +400,7 @@ async function uploadPrescription() {
 
     const response = await fetch(
 
-        "http://127.0.0.1:5000/upload-prescription",
+        "https://pharmasync-74to.onrender.com/upload-prescription",
 
         {
 
@@ -421,7 +421,7 @@ async function loadPrescriptions() {
 
     const response = await fetch(
 
-        "http://127.0.0.1:5000/prescriptions"
+        "https://pharmasync-74to.onrender.com/prescriptions"
 
     )
 
@@ -466,7 +466,7 @@ async function loadPrescriptions() {
 
             <img
 
-                src="http://127.0.0.1:5000/uploads/${p.image}"
+                src="https://pharmasync-74to.onrender.com/uploads/${p.image}"
 
                 style="
                 width:100%;
@@ -491,7 +491,7 @@ async function loadOwnerMedicines() {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/owner-medicines/${owner_id}`
+        `https://pharmasync-74to.onrender.com/owner-medicines/${owner_id}`
 
     )
 
@@ -637,7 +637,7 @@ async function updateStock(medicine_id) {
 
     const response = await fetch(
 
-        "http://127.0.0.1:5000/update-stock",
+        "https://pharmasync-74to.onrender.com/update-stock",
 
         {
 
@@ -678,7 +678,7 @@ async function updatePrice(medicine_id) {
 
     const response = await fetch(
 
-        "http://127.0.0.1:5000/update-price",
+        "https://pharmasync-74to.onrender.com/update-price",
 
         {
 
@@ -713,7 +713,7 @@ async function deleteMedicine(medicine_id) {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/delete-medicine/${medicine_id}`,
+        `https://pharmasync-74to.onrender.com/delete-medicine/${medicine_id}`,
 
         {
             method:"DELETE"
@@ -737,7 +737,7 @@ async function loadLowStock() {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/owner-medicines/${owner_id}`
+        `https://pharmasync-74to.onrender.com/owner-medicines/${owner_id}`
 
     )
 
@@ -805,7 +805,7 @@ async function loadExpiryWarnings() {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/owner-medicines/${owner_id}`
+        `https://pharmasync-74to.onrender.com/owner-medicines/${owner_id}`
 
     )
 
@@ -887,7 +887,7 @@ async function loadNotifications() {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/owner-medicines/${owner_id}`
+        `https://pharmasync-74to.onrender.com/owner-medicines/${owner_id}`
 
     )
 
@@ -986,7 +986,7 @@ async function loadAdminDashboard() {
 
     const usersResponse = await fetch(
 
-        "http://127.0.0.1:5000/all-users"
+        "https://pharmasync-74to.onrender.com/all-users"
 
     )
 
@@ -998,7 +998,7 @@ async function loadAdminDashboard() {
 
     const pharmaciesResponse = await fetch(
 
-        "http://127.0.0.1:5000/all-pharmacies"
+        "https://pharmasync-74to.onrender.com/all-pharmacies"
 
     )
 
@@ -1010,7 +1010,7 @@ async function loadAdminDashboard() {
 
     const ordersResponse = await fetch(
 
-        "http://127.0.0.1:5000/all-orders"
+        "https://pharmasync-74to.onrender.com/all-orders"
 
     )
 
@@ -1164,7 +1164,7 @@ function getNearbyPharmacies() {
 
             const response = await fetch(
 
-                `http://127.0.0.1:5000/nearest?lat=${lat}&lon=${lon}`
+                `https://pharmasync-74to.onrender.com/nearest?lat=${lat}&lon=${lon}`
 
             )
 
@@ -1247,7 +1247,7 @@ async function loadInvoice() {
 
     const response = await fetch(
 
-        `http://127.0.0.1:5000/order-history/${user_id}`
+        `https://pharmasync-74to.onrender.com/order-history/${user_id}`
 
     )
 
@@ -1426,7 +1426,7 @@ function analyzePrescription() {
 
 //     try {
 
-//         const response = await fetch("http://127.0.0.1:5000/chatbot", {
+//         const response = await fetch("https://pharmasync-74to.onrender.com/chatbot", {
 //             method: "POST",
 //             headers: {
 //                 "Content-Type": "application/json"
@@ -1560,7 +1560,7 @@ function showToast(message){
 async function loadMedicines(){
 
     const response = await fetch(
-        "http://127.0.0.1:5000/all-medicines"
+        "https://pharmasync-74to.onrender.com/all-medicines"
     );
 
     const medicines = await response.json();
