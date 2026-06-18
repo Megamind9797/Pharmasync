@@ -1,0 +1,31 @@
+.lamp-instruction{
+    position:absolute;
+
+    top:170px;
+    left:180px;
+
+    font-size:18px;
+    font-weight:600;
+
+    color:#002912;
+
+    white-space:nowrap;
+}
+
+
+.logo img{
+    width:200px;
+    height:100px;
+
+    margin-right:50px;
+
+    
+    object-fit:contain;
+    
+}
+
+@keyframes blink{
+    0%{opacity:1;}
+    50%{opacity:.5;}
+    100%{opacity:1;}
+}

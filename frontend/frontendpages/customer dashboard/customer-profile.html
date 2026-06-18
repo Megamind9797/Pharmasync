@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Details - PharmaSync</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+.dashboard{
+    display:flex;
+}
+
+/* SIDEBAR */
+
+.dashboard-sidebar{
+
+        width:260px;
+        height:100vh;
+
+        background:
+        linear-gradient(to bottom,#10c9a7,#0f82ff);
+
+        color:white;
+
+        position:fixed;
+
+        top:0;
+        left:0;
+
+        padding:25px;
+
+        overflow-y:auto;
+
+    }
+
+
+
+
+
+
+    /* LOGO */
+
+    .dashboard-logo{
+        text-align:center;
+        margin-bottom:40px;
+    }
+
+    .dashboard-logo-img{
+        width:120px;
+        margin-bottom:15px;
+    }
+
+    .dashboard-logo h1{
+        font-size:36px;
+    }
+
+
+
+
+
+
+    /* MENU */
+
+    .dashboard-menu{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .dashboard-menu a{
+
+        color:white;
+
+        text-decoration:none;
+
+        padding:14px;
+
+        border-radius:12px;
+
+        transition:0.3s;
+
+        font-size:18px;
+
+    }
+
+    .dashboard-menu a:hover{
+        background:rgba(255,255,255,0.2);
+    }
+
+
+/* MAIN */
+
+.main-content{
+    margin-left:270px;
+    width:calc(100% - 240px);
+    padding:25px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.search-box{
+    flex:1;
+}
+
+.search-box input{
+    width:70%;
+    padding:16px 22px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    background:white;
+    font-size:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.top-icons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.icon-btn{
+    width:45px;
+    height:45px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.profile{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    padding:35px;
+    border-radius:25px;
+    color:white;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    margin-top:10px;
+}
+
+/* FORM */
+
+.form-card{
+    background:white;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.section-title{
+    font-size:24px;
+    color:#111827;
+    margin-bottom:20px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.input-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.input-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:#374151;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    outline:none;
+    font-size:14px;
+}
+
+.input-group textarea{
+    resize:none;
+    height:120px;
+}
+
+.full-width{
+    grid-column:1/-1;
+}
+
+.submit-btn{
+    margin-top:30px;
+    padding:15px 35px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <div class="dashboard-logo">
+
+            <img src="newlogo.jpeg"
+            class="dashboard-logo-img">
+
+            <h2>PharmaSync</h2>
+
+        </div>
+
+
+
+
+
+        <!-- MENU -->
+
+        <nav class="dashboard-menu">
+
+            <a href="Customer-dashboard2.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="medicines.html">
+                💊 Medicines
+            </a>
+
+            <a href="Maps.html">
+                📍 Nearby Pharmacy
+            </a>
+
+            <a href="prescriptions.html">
+                📄 Prescriptions
+            </a>
+
+            <a href="cart.html">
+                🛒 Orders
+            </a>
+
+            <a href="qr-scan.html">
+                📷 QR Scanner</a>
+
+            <a href="#" onclick="logout()">
+🚪 Logout
+</a>    
+
+            <!-- <a href="notifications.html">
+                🔔 Notifications</a> -->
+        </nav>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+            </div>
+
+            <div class="top-icons">
+
+                <div class="icon-btn">🔔</div>
+
+                <div class="icon-btn"><a href="cart.html">🛒</a></div>
+
+                <div class="profile">👤</div>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <div class="hero">
+            <h1>Patient Information</h1>
+            <p>Please provide your medical and doctor details.</p>
+        </div>
+
+        <!-- FORM -->
+
+        <div class="form-card">
+
+            <h2 class="section-title">
+                Customer Details
+            </h2>
+
+            <form id="profileForm">
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="name">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="phone">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Date of Birth</label>
+                        <input type="date" id="dob">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Gender</label>
+                        <select>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+    <label>Blood Group</label>
+
+    <select id="blood">
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+    </select>
+</div>
+
+                    <div class="input-group full-width">
+                        <label>Address</label>
+                        <textarea id="address"></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Emergency Contact</label>
+                        <input type="tel" id="emergencyPhone">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Emergency Contact Name</label>
+                        <input type="text" id="emergencyName">
+                    </div>
+
+                </div>
+
+                <br><br>
+
+                <h2 class="section-title">
+                    Doctor Details
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+                        <label>Doctor Name</label>
+                        <input type="text" id="doctorName">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Doctor Phone Number</label>
+                        <input type="tel" id="doctorPhone">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Hospital / Clinic Name</label>
+                        <input type="text" id="hospital">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Doctor Email</label>
+                        <input type="email" id="doctorEmail">
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>Doctor Address</label>
+                        <textarea id="doctorAddress"></textarea>
+                    </div>
+
+                </div>
+
+                <br><br>
+
+                <h2 class="section-title">
+                    Medical Information
+                </h2>
+
+                <div class="form-grid">
+
+                    <div class="input-group full-width">
+                        <label>Allergies</label>
+                        <textarea id="allergies" placeholder="Mention any allergies"></textarea>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>Medical Conditions</label>
+                        <textarea id="conditions" placeholder="Diabetes, Asthma, Hypertension etc."></textarea>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>Current Medications</label>
+                        <textarea id="medications"></textarea>
+                    </div>
+
+                </div>
+
+                <button class="submit-btn" type="submit">
+                    Save Details
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+<script>
+
+document
+.getElementById("profileForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const profile = {
+
+name:
+document.getElementById("name").value,
+
+phone:
+document.getElementById("phone").value,
+
+email:
+document.getElementById("email").value,
+
+dob:
+document.getElementById("dob").value,
+
+blood:
+document.getElementById("blood").value,
+
+address:
+document.getElementById("address").value,
+
+emergencyPhone:
+document.getElementById("emergencyPhone").value,
+
+emergencyName:
+document.getElementById("emergencyName").value,
+
+doctorName:
+document.getElementById("doctorName").value,
+
+doctorPhone:
+document.getElementById("doctorPhone").value,
+
+hospital:
+document.getElementById("hospital").value,
+
+doctorEmail:
+document.getElementById("doctorEmail").value,
+
+doctorAddress:
+document.getElementById("doctorAddress").value,
+
+allergies:
+document.getElementById("allergies").value,
+
+conditions:
+document.getElementById("conditions").value,
+
+medications:
+document.getElementById("medications").value
+
+};
+console.log(profile);
+localStorage.setItem(
+"customerProfile",
+JSON.stringify(profile)
+);
+
+alert("Profile Saved Successfully!");
+
+window.location.href =
+"Customer-dashboard2.html";
+
+});
+
+</script>
+</body>
+</html>

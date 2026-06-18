@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PharmaSync Login</title>
+<link rel="stylesheet" href="register.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      background:#eef7f1;
+      overflow:hidden;
+      position:relative;
+    }
+
+    body::before{
+      content:'';
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:rgba(43,201,109,0.08);
+      border-radius:50%;
+      right:-250px;
+      top:80px;
+      z-index:0;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    nav{
+    width:100%;
+    height:95px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 90px;
+    box-shadow:0 3px 20px rgba(0,0,0,0.04);
+}
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo img{
+    height:120px;
+    width:120px;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:34px;
+    font-weight:700;
+    color:#22b573;
+    letter-spacing:1px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:45px;
+    align-items:center;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#173f34;
+    font-size:18px;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#22b573;
+}
+
+.active{
+    color:#22b573;
+    position:relative;
+}
+
+.active::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:3px;
+    border-radius:20px;
+    background:#22b573;
+}
+
+.register-btn{
+    background:linear-gradient(to right,#22c67a,#49de90);
+    padding:14px 30px;
+    border-radius:35px;
+    color:white !important;
+    box-shadow:0 12px 25px rgba(34,198,122,0.25);
+}
+
+    /* ================= MAIN ================= */
+
+    .main{
+      width:100%;
+      min-height:calc(100vh - 90px);
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:40px 90px;
+
+      position:relative;
+      z-index:5;
+    }
+
+    /* ================= LEFT SIDE ================= */
+
+    .right{
+      position:relative;
+
+      width:50%;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      padding-left:120px;
+    }
+
+    /* ================= LAMP ================= */
+
+    .lamp-wrapper{
+      position:absolute;
+
+      left:-40px;
+      top:-40px;
+
+      z-index:20;
+
+      transform:scale(1.15);
+    }
+
+    .lamp{
+      position:relative;
+      width:180px;
+      height:250px;
+
+      filter:
+      drop-shadow(0 15px 20px rgba(0,0,0,0.08));
+    }
+
+    .light{
+      position:absolute;
+
+      width:550px;
+      height:550px;
+
+      background:
+      radial-gradient(circle,
+      rgba(255,255,255,0.9) 0%,
+      rgba(255,255,255,0.55) 18%,
+      rgba(76,195,255,0.18) 38%,
+      rgba(41,200,107,0.20) 55%,
+      transparent 74%);
+
+      left:50%;
+      top:-150px;
+
+      transform:translateX(-50%);
+
+      opacity:0;
+      transition:0.7s;
+
+      pointer-events:none;
+    }
+
+    .lamp-top{
+      width:180px;
+      height:90px;
+
+      background:white;
+
+      border-radius:100px 100px 30px 30px;
+
+      position:absolute;
+      top:0;
+
+      box-shadow:
+      0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .lamp-stand{
+      width:20px;
+      height:145px;
+
+      background:white;
+
+      position:absolute;
+      left:50%;
+      top:72px;
+
+      transform:translateX(-50%);
+
+      border-radius:20px;
+    }
+
+    .lamp-base{
+      width:90px;
+      height:18px;
+
+      background:white;
+
+      position:absolute;
+      bottom:0;
+      left:50%;
+
+      transform:translateX(-50%);
+
+      border-radius:20px;
+    }
+
+    .rope{
+      width:2px;
+      height:90px;
+
+      background:#999;
+
+      position:absolute;
+      right:42px;
+      top:38px;
+
+      cursor:pointer;
+      z-index:50;
+    }
+
+    .rope::after{
+      content:'';
+
+      width:15px;
+      height:15px;
+
+      background:#d7a14d;
+
+      border-radius:50%;
+
+      position:absolute;
+
+      bottom:-8px;
+      left:50%;
+
+      transform:translateX(-50%);
+    }
+
+    /* ================= LOGIN CARD ================= */
+
+    .login-card{
+
+      position:relative;
+      z-index:5;
+
+      width:430px;
+
+      background:white;
+
+      border-radius:36px;
+
+      padding:55px 42px;
+
+      margin-left:80px;
+      margin-top:60px;
+
+      text-align:center;
+
+      box-shadow:
+      0 20px 50px rgba(0,0,0,0.06);
+
+      opacity:0;
+
+      transform:
+      translateY(40px)
+      scale(0.95);
+
+      transition:0.7s;
+    }
+
+    .login-card.active{
+      opacity:1;
+
+      transform:
+      translateY(0)
+      scale(1);
+    }
+
+    .login-icon{
+      width:95px;
+      height:95px;
+
+      background:#e8f9ef;
+
+      border-radius:50%;
+
+      margin:-100px auto 20px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      font-size:40px;
+      color:#25bf69;
+
+      box-shadow:
+      0 15px 30px rgba(41,200,107,0.18);
+    }
+
+    .login-card h2{
+      font-size:54px;
+      color:#083b2d;
+      margin-bottom:10px;
+    }
+
+    .login-card p{
+      color:#7a8781;
+      font-size:18px;
+      margin-bottom:30px;
+    }
+
+    .input-box{
+      margin-bottom:18px;
+    }
+
+    .input-box input{
+      width:100%;
+      padding:18px 22px;
+
+      border:2px solid #edf1ef;
+      border-radius:18px;
+
+      outline:none;
+
+      font-size:16px;
+
+      transition:0.3s;
+    }
+
+    .input-box input:focus{
+      border-color:#27c46b;
+
+      box-shadow:
+      0 0 15px rgba(39,196,107,0.12);
+    }
+
+    .login-btn{
+      width:100%;
+      padding:18px;
+
+      border:none;
+      border-radius:18px;
+
+      background:
+      linear-gradient(135deg,#29c86b,#4ddd97);
+
+      color:white;
+      font-size:20px;
+      font-weight:600;
+
+      cursor:pointer;
+
+      margin-top:10px;
+
+      transition:0.3s;
+    }
+
+    .login-btn:hover{
+      transform:translateY(-2px);
+
+      box-shadow:
+      0 12px 30px rgba(41,200,107,0.25);
+    }
+
+    .bottom-text{
+      margin-top:24px;
+      color:#7a8781;
+      font-size:17px;
+    }
+
+    .bottom-text a{
+      text-decoration:none;
+      color:#25b869;
+      font-weight:600;
+    }
+
+    /* ================= RIGHT TEXT ================= */
+
+    .left{
+      width:42%;
+
+      opacity:0;
+      transform:translateX(60px);
+
+      transition:0.7s;
+    }
+
+    .left.active{
+      opacity:1;
+      transform:translateX(0);
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+
+      background:#e6f8ee;
+      color:#24b768;
+
+      padding:12px 24px;
+
+      border-radius:40px;
+
+      font-weight:600;
+
+      margin-bottom:28px;
+    }
+
+    .left h2{
+      font-size:78px;
+      line-height:1.05;
+      color:#083b2d;
+      font-weight:800;
+    }
+
+    .left h3{
+      margin-top:18px;
+      color:#27c46b;
+      font-size:32px;
+      font-weight:600;
+    }
+
+    .left p{
+      margin-top:28px;
+      color:#60706a;
+      font-size:21px;
+      line-height:1.8;
+    }
+
+    .features{
+      margin-top:45px;
+
+      display:flex;
+      flex-direction:column;
+      gap:25px;
+    }
+
+    .feature{
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+    }
+
+    .feature-icon{
+      min-width:58px;
+      height:58px;
+
+      background:#e8f9ef;
+
+      border-radius:18px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      font-size:22px;
+    }
+
+    .feature h4{
+      font-size:24px;
+      color:#083b2d;
+      margin-bottom:6px;
+    }
+
+    .feature span{
+      color:#6d7c76;
+      font-size:17px;
+    }
+
+    /* ================= ACTIVE ================= */
+
+    body.on .light{
+      opacity:1;
+    }
+
+    body.on .lamp-top{
+      box-shadow:
+      0 0 35px rgba(255,255,255,0.9),
+      0 0 120px rgba(41,200,107,0.45);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:1300px){
+
+      .main{
+        flex-direction:column;
+        gap:120px;
+      }
+
+      .right{
+        width:100%;
+      }
+
+      .left{
+        width:100%;
+      }
+
+      .lamp-wrapper{
+        left:-50px;
+      }
+
+      .left h2{
+        font-size:56px;
+      }
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        padding:0 20px;
+      }
+
+      .nav-links{
+        gap:18px;
+      }
+
+      .main{
+        padding:40px 20px;
+      }
+
+      .right{
+        padding-left:40px;
+      }
+
+      .login-card{
+        width:100%;
+        max-width:370px;
+        margin-left:40px;
+      }
+
+      .lamp-wrapper{
+        transform:scale(0.9);
+        left:-20px;
+      }
+
+      .left h2{
+        font-size:42px;
+      }
+
+      .left h3{
+        font-size:24px;
+      }
+
+      .left p{
+        font-size:18px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+<nav>
+
+   <!-- LOGO -->
+
+<div class="logo">
+
+    <img src="newlogo.jpeg" alt="Logo">
+
+    <span>PharmaSync</span>
+
+</div>
+
+</div>
+
+    <ul>
+        <li><a href="index1.html">Home</a></li>
+        <li><a href="about1.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login2.html">Login</a></li>
+        <li><a href="register1.html" class="register-btn">Register</a></li>
+    </ul>
+
+</nav>
+
+  <!-- ================= MAIN ================= -->
+
+  <section class="main">
+
+    <!-- LEFT SIDE -->
+
+    <div class="right">
+
+      <!-- Lamp -->
+
+      <div class="lamp-wrapper">
+
+        <div class="lamp-instruction" id="instruction">
+          Click On the hanging Switch to Login
+        </div>
+
+        <div class="light"></div>
+
+        <div class="lamp">
+
+          <div class="lamp-top"></div>
+
+          <div class="lamp-stand"></div>
+
+          <div class="lamp-base"></div>
+
+          <div class="rope"
+          onclick="toggleLamp()"></div>
+
+        </div>
+
+      </div>
+
+      <!-- Login Card -->
+
+      <div class="login-card"
+      id="loginCard">
+
+        <h2>
+          Login
+        </h2>
+
+        <p>
+          Please sign in to continue
+        </p>
+
+        <div class="input-box">
+          <input type="email" id="email"placeholder="Enter Email">
+        </div>
+
+        <div class="input-box">
+          <input type="password" id="password" placeholder="Enter Password">
+        </div>
+
+        <button class="login-btn" onclick="loginUser()">
+            Login
+
+        </button>
+
+        <div class="bottom-text">
+
+          Don't have an account?
+
+          <a href="register1.html">
+            Register
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE TEXT -->
+
+    <div class="left"
+    id="leftContent">
+
+      <div class="badge">
+        🛡 Smart Pharmacy Management
+      </div>
+
+      <h2>
+        Welcome Back!
+      </h2>
+
+      <h3>
+        Glad to see you again 👋
+      </h3>
+
+      <p>
+        Login to access your dashboard,
+        manage medicines, customers and
+        prescriptions seamlessly.
+      </p>
+
+      <div class="features">
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            🔒
+          </div>
+
+          <div>
+
+            <h4>
+              Secure & Reliable
+            </h4>
+
+            <span>
+              Your data is protected with top-tier security
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ⚡
+          </div>
+
+          <div>
+
+            <h4>
+              Fast & Efficient
+            </h4>
+
+            <span>
+              Sync and manage everything in real-time
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="feature">
+
+          <div class="feature-icon">
+            ❤
+          </div>
+
+          <div>
+
+            <h4>
+              Smart & Simple
+            </h4>
+
+            <span>
+              Designed for modern pharmacies
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <script>
+
+    let isOn = false;
+
+    // function toggleLamp(){
+
+    //   isOn = !isOn;
+
+    //   const body = document.body;
+
+    //   const loginCard =
+    //   document.getElementById("loginCard");
+
+    //   const leftContent =
+    //   document.getElementById("leftContent");
+
+    //   if(isOn){
+
+    //     body.classList.add("on");
+
+    //     loginCard.classList.add("active");
+
+    //     leftContent.classList.add("active");
+    //   }
+
+    //   else{
+
+    //     body.classList.remove("on");
+
+    //     loginCard.classList.remove("active");
+
+    //     leftContent.classList.remove("active");
+    //   }
+    // }
+
+    function toggleLamp(){
+
+    isOn = !isOn;
+
+    const body = document.body;
+
+    const loginCard =
+    document.getElementById("loginCard");
+
+    const instruction =
+    document.getElementById("instruction");
+
+    if(isOn){
+
+        body.classList.add("on");
+
+        loginCard.classList.add("active");
+
+        instruction.remove();
+    }
+
+    else{
+
+        body.classList.remove("on");
+
+        loginCard.classList.remove("active");
+    }
+}    
+
+ const API = "http://127.0.0.1:5000";
+
+    async function loginUser(){
+
+    const email =
+    document.getElementById("email").value;
+
+    const password =
+    document.getElementById("password").value;
+
+    const response =
+    await fetch(
+        `${API}/customer-login`,
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                email,
+                password
+            })
+        }
+    );
+
+    const data =
+    await response.json();
+
+
+
+
+
+alert(data.message);
+
+
+
+if(data.id){
+
+localStorage.setItem(
+    "user_id",
+    data.id
+);
+
+localStorage.setItem(
+    "role",
+    data.role
+);
+
+
+
+    
+
+    if(data.role === "Pharmacy Owner"){
+        window.location.href="owner-dashboard.html";
+    }
+
+    else if(data.role === "Customer"){
+        window.location.href="customer dashboard/Customer-dashboard2.html";
+    }
+
+    else if(data.role === "Admin"){
+        window.location.href="admin-dashboard.html";
+    }
+}}
+  </script>
+
+</body>
+</html>

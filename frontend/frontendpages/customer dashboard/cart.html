@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PharmaSync Cart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+.dashboard{
+    display:flex;
+}
+
+/* Sidebar */
+
+.dashboard-sidebar{
+
+        width:260px;
+        height:100vh;
+
+        background:
+        linear-gradient(to bottom,#10c9a7,#0f82ff);
+
+        color:white;
+
+        position:fixed;
+
+        top:0;
+        left:0;
+
+        padding:25px;
+
+        overflow-y:auto;
+
+    }
+
+
+
+
+
+
+    /* LOGO */
+
+    .dashboard-logo{
+        text-align:center;
+        margin-bottom:40px;
+    }
+
+    .dashboard-logo-img{
+        width:120px;
+        margin-bottom:15px;
+    }
+
+    .dashboard-logo h1{
+        font-size:36px;
+    }
+
+
+
+
+
+
+    /* MENU */
+
+    .dashboard-menu{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .dashboard-menu a{
+
+        color:white;
+
+        text-decoration:none;
+
+        padding:14px;
+
+        border-radius:12px;
+
+        transition:0.3s;
+
+        font-size:18px;
+
+    }
+
+    .dashboard-menu a:hover{
+        background:rgba(255,255,255,0.2);
+    }
+
+
+/* Main Content */
+
+.main-content{
+    margin-left:270px;
+    width:calc(100% - 230px);
+    padding:25px;
+}
+
+/* Top Bar */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.search{
+    width:70%;
+    padding:16px 20px;
+    border:none;
+    border-radius:18px;
+}
+
+.icons{
+    display:flex;
+    gap:20px;
+    font-size:22px;
+}
+
+/* Header */
+
+.header{
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    padding:35px;
+    border-radius:25px;
+    color:white;
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:42px;
+}
+
+/* Cart */
+
+.cart-container{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+}
+
+.cart-items{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.cart-item{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.item-info h3{
+    margin-bottom:5px;
+}
+
+.item-price{
+    color:#10b981;
+    font-weight:700;
+}
+
+.controls{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.controls button{
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:10px;
+    background:#10b981;
+    color:white;
+    cursor:pointer;
+}
+
+.remove-btn{
+    background:#ef4444 !important;
+}
+
+/* Summary */
+
+.summary{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    height:fit-content;
+}
+
+.summary h2{
+    margin-bottom:20px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.total{
+    font-size:24px;
+    font-weight:700;
+    color:#10b981;
+}
+.delete-btn{
+    background:#555;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.checkout-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    margin-top:20px;
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.empty{
+    background:white;
+    padding:50px;
+    border-radius:20px;
+    text-align:center;
+    font-size:20px;
+}
+
+
+.order-card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    margin-top:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.cancel-btn{
+    background:red;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+<aside class="dashboard-sidebar">
+
+        <div class="dashboard-logo">
+
+            <img src="newlogo.jpeg"
+            class="dashboard-logo-img">
+
+            <h2>PharmaSync</h2>
+
+        </div>
+
+
+
+
+
+        <!-- MENU -->
+
+        <nav class="dashboard-menu">
+
+            <a href="Customer-dashboard2.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="medicines.html">
+                💊 Medicines
+            </a>
+
+            <a href="Maps.html">
+                📍 Nearby Pharmacy
+            </a>
+
+            <a href="prescriptions.html">
+                📄 Prescriptions
+            </a>
+
+            <a href="cart.html">
+                🛒 Orders
+            </a>
+            <a href="qr-scan.html">📷
+                 QR Scanner</a>
+            <a href="notifications.html">🔔 
+                Notifications</a>
+        </nav>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <div class="topbar">
+            <!-- <input class="search" placeholder="Search cart..."> -->
+            <div class="icons">
+                <span>🔔</span> 
+                <span><a href="customer-profile.html"></a>👤</span>
+            </div>
+            <style>
+                .icons{
+                    margin-right:100px;
+                }
+            </style>
+        </div>
+
+        <div class="header">
+            <h1>Your Cart</h1>
+            <p>Review your medicines before checkout.</p>
+        </div>
+
+        <div class="cart-container">
+
+
+            <div id="cart-items" class="cart-items"></div>
+
+            <div class="summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Items</span>
+                    <span id="item-count">0</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>Total</span>
+                    <span id="total-price" class="total">₹0</span>
+                </div>
+
+                <button class="checkout-btn"
+                onclick="placeOrder()">
+                    Proceed to Checkout
+                </button>
+
+            </div>
+
+            <div style="margin-top:30px;">
+                         <h2>My Orders</h2>
+
+                        <div id="ordersContainer"></div>
+                        </div>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+const USER_ID=
+localStorage.getItem("user_id")    
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCart(){
+
+    const container = document.getElementById("cart-items");
+
+    if(cart.length === 0){
+
+        container.innerHTML =
+        `<div class="empty">
+            Your cart is empty 🛒
+        </div>`;
+
+        document.getElementById("item-count").innerText = 0;
+        document.getElementById("total-price").innerText = "₹0";
+
+        return;
+    }
+
+    let html = "";
+    let total = 0;
+    let totalitems=0;
+
+    cart.forEach((item,index)=>{
+
+        if(!item.quantity){
+            item.quantity = 1;
+        }
+
+        total += item.price * item.quantity;
+        totalitems += item.quantity;
+
+        html += `
+        <div class="cart-item">
+
+            <div class="item-info">
+                <h3>${item.name}</h3>
+                <h3>${item.pharmacy}</h3>
+                <p class="item-price">
+                    ₹${item.price}
+                </p>
+            </div>
+
+            <div class="controls">
+
+                <button onclick="decreaseQty(${index})">-</button>
+
+                <span>${item.quantity}</span>
+
+                <button onclick="increaseQty(${index})">+</button>
+
+                <button
+                class="remove-btn"
+                onclick="removeItem(${index})">
+                ✕
+                </button>
+
+            </div>
+
+        </div>
+        `;
+    });
+
+    container.innerHTML = html;
+
+    document.getElementById("item-count").innerText =
+        totalitems;
+
+    document.getElementById("total-price").innerText =
+        "₹" + total;
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+}
+
+function increaseQty(index){
+
+    cart[index].quantity++;
+
+    renderCart();
+}
+
+function decreaseQty(index){
+
+    if(cart[index].quantity > 1){
+
+        cart[index].quantity--;
+
+        renderCart();
+    }
+}
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    renderCart();
+}
+
+renderCart();
+
+async function placeOrder(){
+
+
+    const userId =
+    localStorage.getItem("user_id");
+
+
+    const orderData = cart.map(item => ({
+    ...item,
+    user_id: userId
+}));
+
+    const response = await fetch(
+        "http://127.0.0.1:5000/order",
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(orderData)
+        }
+    );
+
+    const data = await response.json();
+
+    alert(data.message);
+
+    localStorage.removeItem("cart");
+
+    window.location.reload();
+}
+
+
+function loadOrders(){
+
+    const userId =
+    localStorage.getItem("user_id");
+
+    fetch(`http://127.0.0.1:5000/user-orders/${USER_ID}`)
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        const container =
+        document.getElementById("ordersContainer");
+
+        if(!container) return;
+
+        container.innerHTML = "";
+
+      data.filter(order => order[3] !== "Cancelled").reverse().forEach(order => {
+
+        let statusColor = "orange";
+
+if(order[3] == "Accepted")
+    statusColor = "green";
+
+if(order[3] == "Assigned")
+    statusColor = "blue";
+
+if(order[3] == "Out For Delivery")
+    statusColor = "purple";
+
+if(order[3] == "Delivered")
+    statusColor = "green";
+
+if(order[3] == "Rejected")
+    statusColor = "red";
+
+            container.innerHTML += `
+
+<div class="order-card">
+
+    <h3>${order[1]}</h3>
+
+    <p>Quantity : ${order[2]}</p>
+
+    <p style="color:${statusColor};font-weight:bold;">
+        Status : ${order[3]}
+    </p>
+
+    ${order[3] == "Placed" ||
+      order[3] == "Accepted" ||
+      order[3] == "Assigned" ||
+      order[3] == "Out For Delivery"
+    ?
+    `
+    <button
+    class="cancel-btn"
+    onclick="cancelOrder(${order[0]})">
+        Cancel Order
+    </button>
+    `
+    :
+    ""
+    }
+
+    ${order[3] == "Delivered" ||
+      order[3] == "Rejected"
+    ?
+    `
+    <button
+    class="delete-btn"
+    onclick="deleteOrder(${order[0]})">
+        Delete History
+    </button>
+    `
+    :
+    ""
+    }
+
+</div>
+
+`;
+
+        });
+
+    });
+
+}
+
+
+function cancelOrder(orderId){
+
+    fetch(
+        `http://127.0.0.1:5000/cancel-order/${orderId}`,
+        {
+            method:"POST"
+        }
+    )
+
+    .then(res => res.json())
+
+    .then(data => {
+
+        alert(data.message);
+
+        loadOrders();
+
+    });
+
+}
+
+loadOrders();
+async function deleteOrder(orderId){
+
+    if(!confirm("Delete this order from history?"))
+        return;
+
+    await fetch(
+        `http://127.0.0.1:5000/delete-order/${orderId}`,
+        {
+            method:"DELETE"
+        }
+    );
+
+    loadOrders();
+}
+
+
+
+</script>
+
+</body>
+</html>

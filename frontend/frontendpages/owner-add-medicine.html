@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Medicine</title>
+
+    <link rel="stylesheet"
+          href="owner.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo-section">
+
+            <img src="newlogo.jpeg"
+                 class="logo">
+
+            <h2>PharmaSync</h2>
+
+            <p>Owner Panel</p>
+
+        </div>
+
+        <ul class="menu">
+
+            <a href="owner-dashboard.html">
+                <li>
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </li>
+            </a>
+
+            <a href="owner-medicines.html">
+                <li>
+                    <i class="fa-solid fa-pills"></i>
+                    Medicines
+                </li>
+            </a>
+
+            <a href="owner-orders.html">
+                <li>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Orders
+                </li>
+            </a>
+
+            <a href="owner-stock.html">
+                <li>
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    Stock
+                </li>
+            </a>
+
+            <a href="owner-analytics.html">
+                <li>
+                    <i class="fa-solid fa-chart-line"></i>
+                    Analytics
+                </li>
+            </a>
+            <a href="#" onclick="logout()">
+🚪 Logout
+</a>
+
+            <!-- <a href="owner-notification.html">
+                <li>
+                    <i class="fa-solid fa-bell"></i>
+                    Notifications
+                </li>
+            </a> -->
+
+            <a href="owner-settings.html">
+                <li>
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </li>
+            </a>
+
+            <a href="owner-profile.html">
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </li>
+            </a>
+
+             <!-- <a href="owner-add-medicine.html">
+                <li class="active">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Medicine
+                </li>
+            </a> -->
+
+        </ul>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main-content">
+
+        <!-- NAVBAR -->
+
+        <div class="navbar">
+<!-- 
+             <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                       placeholder="Search medicines...">
+
+            </div>  -->
+
+    <div class="nav-icons">
+
+    <a href="owner-notification.html"
+       class="notification-link">
+
+        <i class="fa-regular fa-bell"></i>
+
+        <span id="notificationCount">
+            0
+        </span>
+
+    </a>
+
+</div>
+</div>
+
+        <!-- PAGE TITLE -->
+
+        <div class="welcome-section">
+
+            <h1>Add New Medicine 💊</h1>
+
+            <p>
+                Add medicines to your pharmacy inventory.
+            </p>
+
+        </div>
+
+        <!-- FORM CARD -->
+
+        
+        
+        
+        
+        <div class="table-card">
+
+            <form
+                class="medicine-form"
+                onsubmit="addMedicine(event)">
+
+                <div class="form-group">
+
+                    <label>Medicine Name</label>
+
+                    <input
+                        type="text"
+                        id="medicineName"
+                        placeholder="Enter medicine name">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Price</label>
+
+                    <input
+                        type="number"
+                        id="medicinePrice"
+                        placeholder="Enter price">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Stock</label>
+
+                    <input
+                        type="number"
+                        id="medicineStock"
+                        placeholder="Enter stock">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Expiry Date</label>
+
+                    <input
+                        type="date"
+                        id="medicineExpiry">
+
+                </div>
+
+                <div class="form-group full-width">
+
+                    <label>Description</label>
+
+                    <textarea
+                        id="medicineDescription"
+                        placeholder="Medicine description">
+                    </textarea>
+
+                </div>
+
+                <div class="form-group full-width">
+
+                    <button
+                        type="submit"
+                        class="add-btn">
+
+                        Add Medicine
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="owner.js"></script>
+
+</body>
+</html>

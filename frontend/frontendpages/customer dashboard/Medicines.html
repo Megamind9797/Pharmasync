@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PharmaSync Medicines</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* PASTE PART 2 CSS HERE */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef2f7;
+}
+
+.dashboard{
+display:flex;
+}
+
+/* SIDEBAR */
+
+    .dashboard-sidebar{
+
+        width:260px;
+        height:100vh;
+
+        background:
+        linear-gradient(to bottom,#10c9a7,#0f82ff);
+
+        color:white;
+
+        position:fixed;
+
+        top:0;
+        left:0;
+
+        padding:25px;
+
+        overflow-y:auto;
+
+    }
+
+
+
+
+
+
+    /* LOGO */
+
+    .dashboard-logo{
+        text-align:center;
+        margin-bottom:40px;
+    }
+
+    .dashboard-logo-img{
+        width:120px;
+        margin-bottom:15px;
+    }
+
+    .dashboard-logo h1{
+        font-size:36px;
+    }
+
+
+
+
+
+
+    /* MENU */
+
+    .dashboard-menu{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .dashboard-menu a{
+
+        color:white;
+
+        text-decoration:none;
+
+        padding:14px;
+
+        border-radius:12px;
+
+        transition:0.3s;
+
+        font-size:18px;
+
+    }
+
+    .dashboard-menu a:hover{
+        background:rgba(255,255,255,0.2);
+    }
+
+
+
+.main-content{
+margin-left:270px;
+width:calc(100% - 240px);
+padding:25px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.topbar input{
+width:70%;
+padding:16px 22px;
+border:none;
+outline:none;
+border-radius:18px;
+}
+
+.top-icons{
+font-size:22px;
+display:flex;
+gap:20px;
+}
+
+.hero{
+background:linear-gradient(
+135deg,
+#10c7a7,
+#1d88e8
+);
+padding:40px;
+border-radius:30px;
+color:white;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:52px;
+}
+
+.hero p{
+margin-top:10px;
+font-size:18px;
+}
+
+.section-title{
+margin-bottom:25px;
+font-size:35px;
+}
+
+.medicine-grid{
+display:grid;
+grid-template-columns:
+repeat(
+auto-fit,
+minmax(300px,1fr)
+);
+gap:25px;
+}
+
+.medicine-card{
+background:white;
+border-radius:25px;
+overflow:hidden;
+box-shadow:
+0 8px 20px
+rgba(0,0,0,.08);
+}
+
+.medicine-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.medicine-info{
+padding:20px;
+}
+
+.medicine-info h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.medicine-info p{
+color:#666;
+margin-bottom:15px;
+}
+
+.bottom{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.price{
+font-size:28px;
+font-weight:700;
+color:#10b981;
+}
+
+.add-btn{
+border:none;
+padding:12px 25px;
+border-radius:12px;
+cursor:pointer;
+background:
+linear-gradient(
+135deg,
+#10c7a7,
+#1d88e8
+);
+color:white;
+font-weight:600;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="dashboard-sidebar">
+
+        <div class="dashboard-logo">
+
+            <img src="newlogo.jpeg"
+            class="dashboard-logo-img">
+
+            <h2>PharmaSync</h2>
+
+        </div>
+
+
+
+
+
+        <!-- MENU -->
+
+        <nav class="dashboard-menu">
+
+            <a href="customer-dashboard2.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="medicines.html">
+                💊 Medicines
+            </a>
+
+            <a href="Maps.html">
+                📍 Nearby Pharmacy
+            </a>
+
+            <a href="prescriptions.html">
+                📄 Prescriptions
+            </a>
+
+            <a href="cart.html">
+                🛒 Orders
+            </a>
+
+            <a href="qr-scan.html">
+                📷 QR Scanner</a>
+
+                <a href="#" onclick="logout()">
+🚪 Logout
+</a>
+            <!-- <a href="notifications.html">
+                🔔 Notifications</a> -->
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <div class="topbar">
+
+            <input
+                type="text"
+                id="searchBox"
+                placeholder="Search medicines..."
+            >
+
+            <div class="top-icons">
+                <span>🔔</span>
+                <span><a href="cart.html">🛒</a></span>   
+                <span><a href="customer-profile.html">👤</a></span>
+            </div>
+
+        </div>
+
+        <div class="hero">
+
+            <h1>Available Medicines</h1>
+
+            <p>
+                Browse and order medicines from trusted pharmacies.
+            </p>
+
+        </div>
+
+        <h2 class="section-title">
+            Medicines Catalog
+        </h2>
+
+        <div id="medicineGrid"
+             class="medicine-grid">
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+/* PASTE PART 3 JAVASCRIPT HERE */
+// const medicinesData = {
+
+// "Dolo 650":{
+//     price:32,
+//     image:"images/Dolo 650.jpeg"
+// },
+
+// "Crocin":{
+//     price:45,
+//     image:"images/Crocin.jpeg"
+// },
+
+// "Paracetamol":{
+//     price:25,
+//     image:"images/Paracetamol.jpeg"
+// },
+
+// "Amoxicillin":{
+//     price:89,
+//     image:"images/Amoxicillin.jpeg"
+// },
+
+// "Azithromycin":{
+//     price:118,
+//     image:"images/Azithromycin.jpeg"
+// },
+
+// "Cefixime":{
+//     price:145,
+//     image:"images/Cefixime.jpeg"
+// },
+
+// "Metronidazole":{
+//     price:48,
+//     image:"images/Metronidazole.jpeg"
+// },
+
+// "Clotrimazole":{
+//     price:95,
+//     image:"images/Clotrimazole.jpeg"
+// },
+
+// "Ketoconazole":{
+//     price:135,
+//     image:"images/Ketoconazole.jpeg"
+// },
+
+// "Benzoyl Peroxide":{
+//     price:220,
+//     image:"images/Benzoyl Peroxide.jpeg"
+// },
+
+// "Tretinoin":{
+//     price:310,
+//     image:"images/Tretinoin.jpeg"
+// },
+
+// "Amlodipine":{
+//     price:65,
+//     image:"images/Amlodipine.jpeg"
+// },
+
+// "Atorvastatin":{
+//     price:145,
+//     image:"images/Atorvastatin.jpeg"
+// },
+
+// "Aspirin":{
+//     price:42,
+//     image:"images/Aspirin.jpeg"
+// },
+
+// "Clopidogrel":{
+//     price:175,
+//     image:"images/Clopidogrel.jpeg"
+// },
+
+// "Furosemide":{
+//     price:38,
+//     image:"images/Furosemide.jpeg"
+// },
+
+// "Spironolactone":{
+//     price:92,
+//     image:"images/Spironolactone.jpeg"
+// },
+
+// "Amikacin":{
+//     price:280,
+//     image:"images/Amikacin.jpeg"
+// },
+
+// "Meropenem":{
+//     price:1450,
+//     image:"images/Meropenem.jpeg"
+// },
+
+// "Piperacillin-Tazobactam":{
+//     price:820,
+//     image:"images/Piperacillin-Tazobactam.jpeg"
+// },
+
+// "Vancomycin":{
+//     price:950,
+//     image:"images/Vancomycin.jpeg"
+// },
+
+// "Teicoplanin":{
+//     price:1450,
+//     image:"images/Teicoplanin.jpeg"
+// },
+
+// "Linezolid":{
+//     price:620,
+//     image:"images/Linezolid.jpeg"
+// },
+
+// "Clarithromycin":{
+//     price:265,
+//     image:"images/Clarithromycin.jpeg"
+// },
+
+// "Roxithromycin":{
+//     price:195,
+//     image:"images/Roxithromycin.jpeg"
+// },
+
+// "Cefuroxime":{
+//     price:235,
+//     image:"images/Cefuroxime.jpeg"
+// },
+
+// "Cefpodoxime":{
+//     price:285,
+//     image:"images/Cefpodoxime.jpeg"
+// },
+
+// "Ofloxacin":{
+//     price:110,
+//     image:"images/Ofloxacin.jpeg"
+// },
+
+// "Nitrofurantoin":{
+//     price:125,
+//     image:"images/Nitrofurantoin.jpeg"
+// },
+
+// "Tinidazole":{
+//     price:72,
+//     image:"images/Tinidazole.jpeg"
+// },
+
+// "Mupirocin":{
+//     price:165,
+//     image:"images/Mupirocin.jpeg"
+// },
+
+// "Fusidic Acid":{
+//     price:220,
+//     image:"images/Fusidic Acid.jpeg"
+// },
+
+// "Terbinafine":{
+//     price:185,
+//     image:"images/Terbinafine.jpeg"
+// },
+
+// "Itraconazole":{
+//     price:395,
+//     image:"images/Itraconazole.jpeg"
+// },
+
+// "Hydroquinone":{
+//     price:145,
+//     image:"images/Hydroquinone.jpeg"
+// },
+
+// "Adapalene":{
+//     price:280,
+//     image:"images/Adapalene.jpeg"
+// },
+
+// "Tacrolimus Ointment":{
+//     price:495,
+//     image:"images/TacrolimusOintment.jpeg"
+// },
+
+// "Pimecrolimus":{
+//     price:595,
+//     image:"images/Pimecrolimus.jpeg"
+// },
+
+// "Minoxidil":{
+//     price:720,
+//     image:"images/Minoxidil.jpeg"
+// },
+
+// "Ciclopirox":{
+//     price:245,
+//     image:"images/Ciclopirox.jpeg"
+// },
+
+// "Clobetasol":{
+//     price:165,
+//     image:"images/Clobetasol.jpeg"
+// },
+
+// "Urea Cream":{
+//     price:180,
+//     image:"images/UreaCream.jpeg"
+// },
+
+// "Telmisartan":{
+//     price:185,
+//     image:"images/Telmisartan.jpeg"
+// },
+
+// "Azee 500":{
+//     price:120,
+//     image:"images/Azee 500.jpeg"
+// },
+
+// "Coldact":{
+//     price:95,
+//     image:"images/Coldact.jpeg"
+// },
+
+// "Combiflam":{
+//     price:40,
+//     image:"images/Combiflam.jpeg"
+// },
+
+// "ORS":{
+//     price:25,
+//     image:"images/ORS.jpeg"
+// },
+
+// "Pantop":{
+//     price:135,
+//     image:"images/Pantop.jpeg"
+// },
+
+// "Voveran":{
+//     price:110,
+//     image:"images/Voveran.jpeg"
+// }
+
+// };
+
+fetch("http://127.0.0.1:5000/all-medicines")
+.then(res => res.json())
+.then(medicines => {
+
+    const grid = document.getElementById("medicineGrid");
+
+    medicines.forEach(medicine => {
+
+        grid.innerHTML += `
+        <div class="medicine-card">
+
+            <img src="images/default-medicine.jpg">
+
+            <div class="medicine-info">
+
+                <h3>${medicine[0]}</h3>
+
+                <p>Available Medicine</p>
+
+                <div class="bottom">
+
+                   
+
+                    <button
+                        class="add-btn"
+                        data-name="${medicine[0]}"
+                        data-price="${medicine[1]}">
+                        Add
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+        `;
+    });
+
+});
+
+
+
+
+
+document.addEventListener("click", function(e){
+
+    if(e.target.classList.contains("add-btn")){
+
+        const medicineName =
+        e.target.dataset.name;
+
+        localStorage.setItem(
+            "selectedMedicine",
+            medicineName
+        );
+
+        window.location.href =
+        "../medicine-options.html";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

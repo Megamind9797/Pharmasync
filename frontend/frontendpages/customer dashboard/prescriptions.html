@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prescriptions - PharmaSync</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+.dashboard{
+    display:flex;
+}
+
+/* SIDEBAR */
+
+.dashboard-sidebar{
+    width:260px;
+    height:100vh;
+    background:linear-gradient(to bottom,#10c9a7,#0f82ff);
+    color:white;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:25px;
+    overflow-y:auto;
+}
+
+.dashboard-logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.dashboard-logo-img{
+    width:120px;
+    margin-bottom:15px;
+}
+
+.dashboard-menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.dashboard-menu a{
+    color:white;
+    text-decoration:none;
+    padding:14px;
+    border-radius:12px;
+    transition:.3s;
+    font-size:18px;
+}
+
+.dashboard-menu a:hover{
+    background:rgba(255,255,255,.2);
+}
+
+/* MAIN */
+
+.dashboard-main{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    padding:25px;
+}
+
+/* TOPBAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.search-box{
+    flex:1;
+}
+
+.search-box input{
+    width:70%;
+    padding:16px 22px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.top-icons{
+    display:flex;
+    gap:15px;
+}
+
+.icon-btn{
+    width:45px;
+    height:45px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.profile{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    padding:35px;
+    border-radius:25px;
+    color:white;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    margin-top:10px;
+}
+
+/* UPLOAD CARD */
+
+.upload-card{
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.upload-area{
+    border:3px dashed #10c7a7;
+    border-radius:20px;
+    padding:60px 20px;
+    margin-top:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.upload-area:hover{
+    background:#f0fdfa;
+}
+
+.upload-icon{
+    font-size:70px;
+    margin-bottom:15px;
+}
+
+.upload-btn{
+    margin-top:20px;
+    padding:14px 35px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* PRESCRIPTIONS */
+
+.prescriptions-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:25px;
+}
+
+.prescription-card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.prescription-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.prescription-card h3{
+    margin-bottom:10px;
+}
+
+.prescription-card p{
+    color:#6b7280;
+}
+
+@media(max-width:1000px){
+
+    .dashboard-sidebar{
+        display:none;
+    }
+
+    .dashboard-main{
+        margin-left:0;
+        width:100%;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <div class="dashboard-logo">
+
+            <img src="newlogo.jpeg"
+            class="dashboard-logo-img">
+
+            <h2>PharmaSync</h2>
+
+        </div>
+
+        <nav class="dashboard-menu">
+
+            <a href="Customer-dashboard2.html">🏠 Dashboard</a>
+            <a href="medicines.html">💊 Medicines</a>
+            <a href="Maps.html">📍 Nearby Pharmacy</a>
+            <a href="prescriptions.html">📄 Prescriptions</a>
+            <a href="cart.html">🛒 Orders</a>
+            <a href="qr-scan.html">📷 QR Scanner</a>
+
+            <a href="#" onclick="logout()">
+🚪 Logout
+</a>
+            <!-- <a href="notifications.html">🔔 Notifications</a> -->
+
+        </nav>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+                <input type="text" placeholder="Search prescriptions...">
+            </div>
+
+            <div class="top-icons">
+                <div class="icon-btn">🔔</div>
+                <div class="icon-btn">🛒</div>
+                <div class="profile"><a href="customer-profile.html"></a>👤</div>
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+            <h1>Prescriptions</h1>
+
+            <p>
+                Upload and manage your doctor's prescriptions securely.
+            </p>
+
+        </div>
+
+        <!-- UPLOAD -->
+
+        <div class="upload-card">
+
+            <h2>Upload Prescription</h2>
+
+            <div class="upload-area"
+                 onclick="document.getElementById('prescriptionInput').click()">
+
+                <div class="upload-icon">📄</div>
+
+                <h3>Drag & Drop or Click to Upload</h3>
+
+                <p>
+                    Supported: JPG, PNG, PDF
+                </p>
+
+                <input
+                    type="file"
+                    id="prescriptionInput"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    hidden>
+
+            </div>
+
+            <button class="upload-btn"
+                    onclick="savePrescription()">
+                Upload Prescription
+            </button>
+
+        </div>
+
+        <!-- SAVED PRESCRIPTIONS -->
+
+        <div class="prescriptions-grid"
+             id="prescriptionGrid">
+
+        </div>
+
+    </main>
+
+</div>
+
+<script>
+
+let selectedFile = null;
+
+document
+.getElementById("prescriptionInput")
+.addEventListener("change",function(){
+
+selectedFile = this.files[0];
+
+});
+
+function savePrescription(){
+
+if(!selectedFile){
+
+alert("Please select a prescription.");
+
+return;
+
+}
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+let prescriptions =
+JSON.parse(
+localStorage.getItem(
+"prescriptions"
+)
+) || [];
+
+prescriptions.push({
+
+name:selectedFile.name,
+
+date:new Date()
+.toLocaleDateString(),
+
+image:e.target.result
+
+});
+
+localStorage.setItem(
+"prescriptions",
+JSON.stringify(prescriptions)
+);
+
+loadPrescriptions();
+
+alert(
+"Prescription Uploaded!"
+);
+
+};
+
+reader.readAsDataURL(selectedFile);
+
+}
+
+function loadPrescriptions(){
+
+const grid =
+document.getElementById(
+"prescriptionGrid"
+);
+
+let prescriptions =
+JSON.parse(
+localStorage.getItem(
+"prescriptions"
+)
+) || [];
+
+grid.innerHTML = "";
+
+prescriptions.forEach(item=>{
+
+grid.innerHTML += `
+
+<div class="prescription-card">
+
+<img src="${item.image}">
+
+<h3>${item.name}</h3>
+
+<p>
+Uploaded:
+${item.date}
+</p>
+
+</div>
+
+`;
+
+});
+
+}
+
+loadPrescriptions();
+
+</script>
+
+</body>
+</html>

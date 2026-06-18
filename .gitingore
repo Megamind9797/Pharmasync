@@ -1,0 +1,6 @@
+database.db
+pharmasync.db
+uploads/
+__pycache__/
+*.pyc
+.vscode/

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Owner Medicines</title>
+
+    <link rel="stylesheet"
+          href="owner.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo-section">
+
+            <img src="newlogo.jpeg"
+                 class="logo">
+
+            <h2>PharmaSync</h2>
+
+            <p>Owner Panel</p>
+
+        </div>
+
+        <ul class="menu">
+
+            <a href="owner-dashboard.html">
+                <li>
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </li>
+            </a>
+
+            <a href="owner-medicines.html">
+                <li class="active">
+                    <i class="fa-solid fa-pills"></i>
+                    Medicines
+                </li>
+            </a>
+
+            <a href="owner-orders.html">
+                <li>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Orders
+                </li>
+            </a>
+
+            <a href="owner-stock.html">
+                <li>
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    Stock
+                </li>
+            </a>
+
+            <a href="owner-analytics.html">
+                <li>
+                    <i class="fa-solid fa-chart-line"></i>
+                    Analytics
+                </li>
+            </a>
+
+            <a href="owner-settings.html">
+                <li>
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </li>
+            </a>
+
+            <a href="owner-profile.html">
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </li>
+            </a>
+
+        </ul>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main-content">
+
+        <!-- NAVBAR -->
+
+        <div class="navbar">
+
+            <!-- <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                       placeholder="Search medicines...">
+
+            </div> -->
+
+         <div class="nav-icons">
+
+    <a href="owner-notification.html"
+       class="notification-link">
+
+        <i class="fa-regular fa-bell"></i>
+
+        <span id="notificationCount">
+            0
+        </span>
+
+    </a>
+
+</div>
+
+        </div>
+
+        <!-- PAGE TITLE -->
+
+        <div class="welcome-section">
+
+            <h1>Settings</h1>
+
+            <p>
+                Manage your pharmacy settings and preferences. Update your profile information, notification preferences, and other account settings.
+            </p>
+
+        </div>
+
+
+
+<!-- MEDICINES TABLE -->
+<!-- ORDERS TABLE -->
+
+<!-- STOCK TABLE -->
+
+<!-- ANALYTICS CARDS -->
+<!-- CUSTOMER TABLE -->
+
+<!-- NOTIFICATIONS -->
+
+<!-- SETTINGS -->
+
+<div class="settings-container">
+
+    <!-- PHARMACY INFO -->
+
+    <div class="settings-card">
+
+        <h2>Pharmacy Information</h2>
+
+        <div class="settings-form">
+
+            <input type="text"
+                   placeholder="Pharmacy Name">
+
+            <input type="email"
+                   placeholder="Pharmacy Email">
+
+            <input type="text"
+                   placeholder="Phone Number">
+
+            <textarea placeholder="Pharmacy Address"></textarea>
+
+            <button class="save-btn">
+
+                Save Changes
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SECURITY -->
+
+    <div class="settings-card">
+
+        <h2>Security</h2>
+
+        <div class="settings-form">
+
+            <input type="password"
+                   placeholder="Current Password">
+
+            <input type="password"
+                   placeholder="New Password">
+
+            <input type="password"
+                   placeholder="Confirm Password">
+
+            <button class="save-btn">
+
+                Update Password
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- DELIVERY -->
+
+    <div class="settings-card">
+
+        <h2>Delivery Settings</h2>
+
+        <div class="toggle-box">
+
+            <label>Enable Home Delivery</label>
+
+            <input type="checkbox" checked>
+
+        </div>
+
+        <div class="toggle-box">
+
+            <label>Enable Cash On Delivery</label>
+
+            <input type="checkbox" checked>
+
+        </div>
+
+        <div class="toggle-box">
+
+            <label>Enable AI Alerts</label>
+
+            <input type="checkbox" checked>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="owner.js"></script>
+
+</body>
+
+</html>

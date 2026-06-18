@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaSync Dashboard</title>
+
+    <link rel="stylesheet" href="new-dashboard.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo-section">
+            <img src="logo.png" class="logo">
+            <h1>PharmaSync</h1>
+        </div>
+
+        <nav class="menu">
+
+            <a href="customer-dashboard.html" class="active">
+                🏠 Dashboard
+            </a>
+
+            <a href="medicines.html">
+                💊 Medicines
+            </a>
+
+            <a href="Maps.html">
+                📍 Nearby Pharmacy
+            </a>
+
+            <a href="prescriptions.html">
+                📄 Prescriptions
+            </a>
+
+            <a href="cart.html">
+                🛒 Orders
+            </a>
+
+            <a href="ai-assistant.html">
+                🤖 AI Assistant
+            </a>
+
+            
+        </nav>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <!-- NAVBAR -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+                <input type="text" placeholder="Search medicines...">
+            </div>
+
+            <div class="top-icons">
+
+                <span>🔔</span>
+                <span><a href="cart.html">🛒</a></span>
+                <div class="profile">👤</div>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-left">
+
+                <h1>
+                    AI Powered Smart
+                    Healthcare Platform
+                </h1>
+
+                <p>
+                    Order medicines, upload prescriptions,
+                    find nearby pharmacies and get
+                    AI healthcare assistance.
+                </p>
+
+                <button>
+                    <a href="Medicines.html">Order Medicines</a>
+                </button>
+
+            </div>
+
+            <div class="hero-right">
+
+                <img src="assets/hero-medicine.png">
+
+            </div>
+
+        </section>
+
+        <!-- STATS -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <h2>120+</h2>
+                <p>Orders Delivered</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>32</h2>
+                <p>Nearby Pharmacies</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>98%</h2>
+                <p>AI Accuracy</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>15 min</h2>
+                <p>Average Delivery</p>
+            </div>
+
+        </section>
+
+        <!-- TRENDING -->
+
+        <section class="trending">
+
+            <div class="section-title">
+                <h2>Trending Medicines</h2>
+            </div>
+
+            <div class="medicine-grid">
+
+                <div class="medicine-card">
+
+                    <img src="assets/medicine1.png">
+
+                    <h3>Dolo 650</h3>
+
+                    <p>Fever & Body Pain</p>
+
+                    <div class="price-row">
+                        <span>₹30</span>
+                        <button>Add</button>
+                    </div>
+
+                </div>
+
+                <div class="medicine-card" id="medicineGrind">
+
+                    <img src="assets/medicine2.png">
+
+                    <h3>Crocin</h3>
+
+                    <p>Cold & Fever Relief</p>
+
+                    <div class="price-row">
+                        <span>₹45</span>
+                        <button>Add</button>
+                    </div>
+
+                </div>
+
+                <div class="medicine-card">
+
+                    <img src="assets/medicine3.png">
+
+                    <h3>Paracetamol</h3>
+
+                    <p>Pain Relief</p>
+
+                    <div class="price-row">
+                        <span>₹25</span>
+                        <button>Add</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

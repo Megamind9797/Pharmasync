@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - PharmaSync</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="register.css">
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#eef7f1;
+      overflow-x:hidden;
+      color:#083b2d;
+    }
+
+    /* ================= NAVBAR ================= */
+/* NAVBAR */
+
+nav{
+    width:100%;
+    height:95px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 90px;
+    box-shadow:0 3px 20px rgba(0,0,0,0.04);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo img{
+    height:120px;
+    width:120px;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:34px;
+    font-weight:700;
+    color:#22b573;
+    letter-spacing:1px;
+}
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:45px;
+    align-items:center;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#173f34;
+    font-size:18px;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#22b573;
+}
+
+.active{
+    color:#22b573;
+    position:relative;
+}
+
+.active::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:3px;
+    border-radius:20px;
+    background:#22b573;
+}
+
+.register-btn{
+    background:linear-gradient(to right,#22c67a,#49de90);
+    padding:14px 30px;
+    border-radius:35px;
+    color:white !important;
+    box-shadow:0 12px 25px rgba(34,198,122,0.25);
+}
+    /* ================= HERO ================= */
+
+    .hero{
+      width:100%;
+      min-height:350px;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+
+      text-align:center;
+
+      padding:80px 20px;
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:'';
+      position:absolute;
+
+      width:700px;
+      height:700px;
+
+      background:
+      radial-gradient(circle,
+      rgba(41,200,107,0.12),
+      transparent 70%);
+
+      top:-250px;
+      right:-150px;
+    }
+
+    .badge{
+      background:#e5f8ec;
+      color:#24b768;
+
+      padding:12px 26px;
+
+      border-radius:40px;
+
+      font-weight:600;
+      margin-bottom:28px;
+
+      z-index:2;
+    }
+
+    .hero h2{
+      font-size:72px;
+      color:#083b2d;
+      font-weight:800;
+
+      margin-bottom:20px;
+
+      z-index:2;
+    }
+
+    .hero p{
+      max-width:950px;
+
+      color:#61706a;
+      font-size:22px;
+      line-height:1.8;
+
+      z-index:2;
+    }
+
+    /* ================= ABOUT SECTION ================= */
+
+    .about-section{
+      width:100%;
+
+      display:flex;
+      justify-content:center;
+
+      padding:20px 80px 100px;
+    }
+
+    .about-card{
+
+      width:100%;
+      max-width:1450px;
+
+      background:white;
+
+      border-radius:40px;
+
+      padding:70px;
+
+      box-shadow:
+      0 20px 60px rgba(0,0,0,0.06);
+
+      position:relative;
+      overflow:hidden;
+    }
+
+    .about-card::before{
+      content:'';
+
+      position:absolute;
+
+      width:350px;
+      height:350px;
+
+      background:
+      radial-gradient(circle,
+      rgba(41,200,107,0.10),
+      transparent 70%);
+
+      top:-100px;
+      right:-80px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+      position:relative;
+      z-index:2;
+    }
+
+    .section-title h3{
+      font-size:54px;
+      color:#083b2d;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .section-title p{
+      color:#6d7c76;
+      font-size:20px;
+    }
+
+    /* ================= FEATURES ================= */
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+
+      margin-bottom:60px;
+    }
+
+    .feature-box{
+      background:#f8fcf9;
+
+      border-radius:28px;
+
+      padding:35px;
+
+      transition:0.4s;
+
+      border:1px solid transparent;
+    }
+
+    .feature-box:hover{
+      transform:translateY(-8px);
+
+      border-color:#2ac76d;
+
+      box-shadow:
+      0 15px 35px rgba(41,200,107,0.10);
+    }
+
+    .feature-icon{
+      width:75px;
+      height:75px;
+
+      border-radius:22px;
+
+      background:
+      linear-gradient(135deg,#4cc3ff,#29c86b);
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      color:white;
+      font-size:30px;
+
+      margin-bottom:25px;
+
+      box-shadow:
+      0 10px 25px rgba(41,200,107,0.20);
+    }
+
+    .feature-box h4{
+      font-size:28px;
+      color:#083b2d;
+      margin-bottom:16px;
+    }
+
+    .feature-box p{
+      color:#6d7c76;
+      line-height:1.8;
+      font-size:17px;
+    }
+
+    /* ================= INFO GRID ================= */
+
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:35px;
+    }
+
+    .info-card{
+      background:#f7fbf8;
+
+      border-radius:30px;
+
+      padding:40px;
+
+      transition:0.3s;
+    }
+
+    .info-card:hover{
+      transform:translateY(-6px);
+
+      box-shadow:
+      0 15px 35px rgba(0,0,0,0.05);
+    }
+
+    .info-card h4{
+      font-size:30px;
+      margin-bottom:18px;
+      color:#083b2d;
+    }
+
+    .info-card p{
+      color:#6d7c76;
+      line-height:1.9;
+      font-size:18px;
+    }
+
+    /* ================= STATS ================= */
+
+    .stats{
+      margin-top:70px;
+
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:25px;
+    }
+
+    .stat-box{
+      background:
+      linear-gradient(135deg,#29c86b,#49d98f);
+
+      border-radius:28px;
+
+      padding:35px;
+
+      text-align:center;
+
+      color:white;
+
+      box-shadow:
+      0 15px 35px rgba(41,200,107,0.18);
+    }
+
+    .stat-box h3{
+      font-size:48px;
+      margin-bottom:10px;
+    }
+
+    .stat-box p{
+      font-size:18px;
+      opacity:0.95;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      width:100%;
+      padding:35px;
+
+      text-align:center;
+
+      color:#6d7c76;
+      font-size:16px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:1200px){
+
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .info-grid{
+        grid-template-columns:1fr;
+      }
+
+      .stats{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .hero h2{
+        font-size:52px;
+      }
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        padding:0 20px;
+      }
+
+      .nav-links{
+        gap:18px;
+      }
+
+      .hero h2{
+        font-size:40px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .about-section{
+        padding:20px;
+      }
+
+      .about-card{
+        padding:35px 25px;
+      }
+
+      .section-title h3{
+        font-size:38px;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+ <nav>
+
+    <div class="logo">
+
+        <img src="newlogo.jpeg" alt="Logo">
+
+        <span>PharmaSync</span>
+
+    </div>
+
+    <ul>
+
+        <li><a href="index1.html" class="active">Home</a></li>
+        <li><a href="about1.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login2.html">Login</a></li>
+        <li><a href="register1.html" class="register-btn">Register</a></li>
+
+    </ul>
+
+</nav>
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="badge">
+      💊 Smart Healthcare Platform
+    </div>
+
+    <h2>
+      About PharmaSync
+    </h2>
+
+    <p>
+      PharmaSync is a modern healthcare and pharmacy
+      management platform designed to simplify medicine
+      management, prescription handling, stock tracking
+      and smart medicine ordering for both customers
+      and pharmacy owners.
+    </p>
+
+  </section>
+
+  <!-- ================= ABOUT SECTION ================= -->
+
+  <section class="about-section">
+
+    <div class="about-card">
+
+      <!-- TITLE -->
+
+      <div class="section-title">
+
+        <h3>
+          Why Choose PharmaSync?
+        </h3>
+
+        <p>
+          Everything you need for smart pharmacy management
+        </p>
+
+      </div>
+
+      <!-- FEATURES -->
+
+      <div class="features">
+
+        <div class="feature-box">
+
+          <div class="feature-icon">
+            💊
+          </div>
+
+          <h4>
+            Smart Medicine Tracking
+          </h4>
+
+          <p>
+            Easily manage medicine inventory, monitor stock
+            levels and receive expiry alerts in real-time
+            with intelligent automation.
+          </p>
+
+        </div>
+
+        <div class="feature-box">
+
+          <div class="feature-icon">
+            📄
+          </div>
+
+          <h4>
+            Prescription Management
+          </h4>
+
+          <p>
+            Upload and handle prescriptions digitally while
+            ensuring faster processing and seamless customer
+            experience.
+          </p>
+
+        </div>
+
+        <div class="feature-box">
+
+          <div class="feature-icon">
+            📍
+          </div>
+
+          <h4>
+            Nearby Pharmacy Detection
+          </h4>
+
+          <p>
+            Help customers find nearby pharmacies quickly
+            and improve medicine availability using smart
+            location services.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- INFO GRID -->
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <h4>
+            Our Mission
+          </h4>
+
+          <p>
+            Our mission is to modernize pharmacy operations
+            using smart digital solutions that improve
+            efficiency, reduce manual work and provide
+            better healthcare accessibility.
+          </p>
+
+        </div>
+
+        <div class="info-card">
+
+          <h4>
+            Our Vision
+          </h4>
+
+          <p>
+            We aim to build a connected healthcare ecosystem
+            where pharmacies, customers and healthcare
+            services work together seamlessly through
+            technology.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- STATS -->
+
+      <div class="stats">
+
+        <div class="stat-box">
+
+          <h3>
+            24/7
+          </h3>
+
+          <p>
+            System Availability
+          </p>
+
+        </div>
+
+        <div class="stat-box">
+
+          <h3>
+            100+
+          </h3>
+
+          <p>
+            Medicines Managed
+          </p>
+
+        </div>
+
+        <div class="stat-box">
+
+          <h3>
+            Real-Time
+          </h3>
+
+          <p>
+            Stock Monitoring
+          </p>
+
+        </div>
+
+        <div class="stat-box">
+
+          <h3>
+            Secure
+          </h3>
+
+          <p>
+            Data Protection
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+    © 2026 PharmaSync. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

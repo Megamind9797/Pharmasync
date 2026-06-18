@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Low Stock Alerts</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            PharmaSync
+        </div>
+
+        <div class="nav-links">
+
+            <a href="owner-dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="owner-medicines.html">
+                Medicines
+            </a>
+
+            <a href="low-stock.html">
+                Low Stock
+            </a>
+
+            <a href="index.html">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= PAGE ================= -->
+
+    <section
+        style="
+        padding:60px 8%;
+        ">
+
+        <h1
+            style="
+            font-size:50px;
+            margin-bottom:40px;
+            ">
+
+            Low Stock
+            <span style="color:#dc2626;">
+                Alerts
+            </span>
+
+        </h1>
+
+
+        <!-- ALERTS -->
+
+        <div
+            id="lowStockContainer"
+
+            style="
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(320px,1fr));
+            gap:25px;
+            ">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        © 2026 PharmaSync |
+        All Rights Reserved
+
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+
+        loadLowStock()
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>QR Scanner</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- QR LIBRARY -->
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            PharmaSync
+        </div>
+
+        <div class="nav-links">
+
+            <a href="Customer-dashboard2.html">
+                Dashboard
+            </a>
+
+            <a href="qr-scan.html">
+                QR Scanner
+            </a>
+
+           
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= PAGE ================= -->
+
+    <section
+        style="
+        padding:60px 8%;
+        text-align:center;
+        ">
+
+        <h1
+            style="
+            font-size:55px;
+            margin-bottom:20px;
+            ">
+
+            Scan Medicine
+            <span style="color:#059669;">
+                QR Code
+            </span>
+
+        </h1>
+
+        <p
+            style="
+            margin-bottom:40px;
+            font-size:18px;
+            ">
+
+            Scan medicine QR code
+            to view medicine information,
+            precautions, and awareness details.
+
+        </p>
+
+
+        <!-- QR READER -->
+
+        <div
+            id="reader"
+
+            style="
+            width:400px;
+            margin:auto;
+            border-radius:20px;
+            overflow:hidden;
+            ">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        © 2026 PharmaSync |
+        All Rights Reserved
+
+    </footer>
+
+
+    <!-- ================= SCRIPT ================= -->
+
+    <script>
+
+        function onScanSuccess(decodedText) {
+
+            // redirect to backend qr page
+
+            window.location.href =
+
+            `http://127.0.0.1:5000/scan/${decodedText}`
+        }
+
+
+        const html5QrCode =
+
+            new Html5QrcodeScanner(
+
+                "reader",
+
+                {
+                    fps:10,
+                    qrbox:250
+                }
+
+            )
+
+
+        html5QrCode.render(onScanSuccess)
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Owner Medicines</title>
+
+    <link rel="stylesheet"
+          href="owner.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <div class="logo-section">
+
+            <img src="newlogo.jpeg"
+                 class="logo">
+
+            <h2>PharmaSync</h2>
+
+            <p>Owner Panel</p>
+
+        </div>
+
+        <ul class="menu">
+
+            <a href="owner-dashboard.html">
+                <li>
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </li>
+            </a>
+
+            <a href="owner-medicines.html">
+                <li class="active">
+                    <i class="fa-solid fa-pills"></i>
+                    Medicines
+                </li>
+            </a>
+
+            <a href="owner-orders.html">
+                <li>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Orders
+                </li>
+            </a>
+
+            <a href="owner-stock.html">
+                <li>
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    Stock
+                </li>
+            </a>
+
+            <a href="owner-analytics.html">
+                <li>
+                    <i class="fa-solid fa-chart-line"></i>
+                    Analytics
+                </li>
+            </a>
+
+            <a href="owner-settings.html">
+                <li>
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </li>
+            </a>
+
+            <a href="owner-profile.html">
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </li>
+            </a>
+            <a href="#" onclick="logout()">
+🚪 Logout
+</a>
+
+        </ul>
+
+    </div>
+
+    <!-- MAIN -->
+
+    <div class="main-content">
+
+        <!-- NAVBAR -->
+
+        <div class="navbar">
+
+            <!-- <div class="search-box">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text"
+                       placeholder="Search medicines...">
+
+            </div> -->
+
+                       <div class="nav-icons">
+
+    <a href="owner-notification.html"
+       class="notification-link">
+
+        <i class="fa-regular fa-bell"></i>
+
+        <span id="notificationCount">
+            0
+        </span>
+
+    </a>
+
+</div>
+        </div>
+
+        <!-- PAGE TITLE -->
+
+        <div class="welcome-section">
+
+            <h1>Business Analytics</h1>
+
+            <p>
+                Get insights into your pharmacy's performance,
+                sales trends, and inventory management.
+            </p>
+
+        </div>
+        <!-- TOP ACTIONS -->
+
+
+
+
+<!-- MEDICINES TABLE -->
+<!-- ORDERS TABLE -->
+
+<!-- STOCK TABLE -->
+
+<!-- ANALYTICS CARDS -->
+ <div class="analytics-cards">
+
+<div class="analytics-card">
+
+    <h2 id="analyticsRevenue">0</h2>
+
+    <p>Total Revenue</p>
+
+</div>
+
+<div class="analytics-card">
+
+    <h2 id="analyticsOrders">0</h2>
+
+    <p>Total Orders</p>
+
+</div>
+
+<div class="analytics-card">
+
+    <h2 id="analyticsLowStock">0</h2>
+
+    <p>Low Stock Medicines</p>
+
+</div>
+
+</div>
+
+<!-- CHART SECTION -->
+
+<div class="chart-section">
+
+    <div class="chart-card">
+
+        <h3>Sales Analytics</h3>
+
+        <canvas id="salesChart"></canvas>
+
+    </div>
+
+    <div class="chart-card">
+
+        <h3>Top Medicines</h3>
+
+        <canvas id="medicineChart"></canvas>
+
+    </div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="owner.js"></script>
+
+
+
+</body>
+
+</html>

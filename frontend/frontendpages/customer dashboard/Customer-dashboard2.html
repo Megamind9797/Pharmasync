@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Dashboard - PharmaSync</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+
+.dashboard{
+    display:flex;
+}
+
+/* SIDEBAR */
+
+.dashboard-sidebar{
+    width:260px;
+    height:100vh;
+    background:linear-gradient(to bottom,#10c9a7,#0f82ff);
+    color:white;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:25px;
+    overflow-y:auto;
+}
+
+.dashboard-logo{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.dashboard-logo-img{
+    width:120px;
+    margin-bottom:15px;
+}
+
+.dashboard-logo h1{
+    font-size:36px;
+}
+
+.dashboard-menu{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.dashboard-menu a{
+    color:white;
+    text-decoration:none;
+    padding:14px;
+    border-radius:12px;
+    transition:.3s;
+    font-size:18px;
+}
+
+.dashboard-menu a:hover{
+    background:rgba(255,255,255,.2);
+}
+
+/* MAIN */
+
+.dashboard-main{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    padding:25px;
+}
+
+/* TOP BAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.search-box{
+    flex:1;
+}
+
+.search-box input{
+    width:70%;
+    padding:16px 22px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    background:white;
+    font-size:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.top-icons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.icon-btn{
+    width:45px;
+    height:45px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.profile{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    padding:35px;
+    border-radius:25px;
+    color:white;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.hero p{
+    margin-top:10px;
+}
+
+/* GRID */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:350px 1fr;
+    gap:25px;
+    margin-bottom:25px;
+}
+
+/* ID CARD */
+
+.id-card{
+    background:white;
+    border-radius:25px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.id-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.avatar{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#10c7a7,#1d88e8);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:32px;
+}
+
+.id-card p{
+    margin:10px 0;
+}
+
+/* STATS */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.stat-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.stat-card h3{
+    color:#6b7280;
+}
+
+.stat-card h1{
+    color:#0f82ff;
+    font-size:42px;
+}
+
+/* LOWER SECTION */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.info-card{
+    background:white;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.info-card h2{
+    margin-bottom:15px;
+    color:#0f82ff;
+}
+
+.info-card p{
+    margin:12px 0;
+}
+
+/* RECENT ORDERS */
+
+.orders{
+    margin-top:25px;
+    background:white;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.orders h2{
+    margin-bottom:15px;
+}
+
+.order-item{
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.order-item:last-child{
+    border:none;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .dashboard-sidebar{
+        display:none;
+    }
+
+    .dashboard-main{
+        margin-left:0;
+        width:100%;
+    }
+
+    .dashboard-grid,
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <div class="dashboard-logo">
+
+            <img src="newlogo.jpeg"
+            class="dashboard-logo-img">
+
+            <h2>PharmaSync</h2>
+
+        </div>
+
+        <nav class="dashboard-menu">
+
+            <a href="Customer-dashboard2.html">🏠 Dashboard</a>
+            <a href="medicines.html">💊 Medicines</a>
+            <a href="Maps.html">📍 Nearby Pharmacy</a>
+            <a href="patient-details.html">📝 Patient Details</a>
+            <a href="cart.html">🛒 Cart</a>
+            <a href="qr-scan.html">📷 QR Scanner</a>
+            <!-- <a href="notifications.html">🔔 Notifications</a> -->
+             <a href="#" onclick="logout()">🚪 Logout</a>
+
+        </nav>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="dashboard-main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            
+
+            <div class="top-icons">
+
+                <div class="icon-btn">
+                    <a href="notifications.html">🔔</a>
+                </div>
+                <div class="icon-btn">
+                    <a href="cart.html">🛒</a>
+                </div>
+                <div class="profile">
+                    <a href="customer-profile.html">👤</a>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+            <h1>
+                Welcome Back,
+                <span id="custNameHero">
+                    Customer
+                </span>
+            </h1>
+
+            <p>
+                Manage your medicines, prescriptions,
+                and healthcare records in one place.
+            </p>
+
+        </div>
+
+        <!-- TOP GRID -->
+
+        <div class="dashboard-grid">
+
+            <!-- ID CARD -->
+
+            <div class="id-card">
+
+                <div class="id-header">
+
+                    <div class="avatar">👤</div>
+
+                    <div>
+                        <h2 id="custName">
+                            Customer Name
+                        </h2>
+
+                        <p>PharmaSync Member</p>
+                    </div>
+
+                </div>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <span id="custPhone">-</span>
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    <span id="custEmail">-</span>
+                </p>
+
+                <p>
+                    <strong>Blood Group:</strong>
+                    <span id="custBlood">-</span>
+                </p>
+
+                <p>
+                    <strong>DOB:</strong>
+                    <span id="custDob">-</span>
+                </p>
+
+            </div>
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <h3>Total Orders</h3>
+                    <h1>12</h1>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Medicines</h3>
+                    <h1>43</h1>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Prescriptions</h3>
+                    <h1>6</h1>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Nearby Stores</h3>
+                    <h1>8</h1>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- INFO SECTION -->
+
+        <div class="info-grid">
+
+            <div class="info-card">
+
+                <h2>Doctor Information</h2>
+
+                <p>
+                    <strong>Name:</strong>
+                    <span id="doctorName">-</span>
+                </p>
+
+                <p>
+                    <strong>Phone:</strong>
+                    <span id="doctorPhone">-</span>
+                </p>
+
+                <p>
+                    <strong>Hospital:</strong>
+                    <span id="hospital">-</span>
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h2>Medical Information</h2>
+
+                <p>
+                    <strong>Allergies:</strong>
+                    <span id="allergies">-</span>
+                </p>
+
+                <p>
+                    <strong>Conditions:</strong>
+                    <span id="conditions">-</span>
+                </p>
+
+                <p>
+                    <strong>Emergency:</strong>
+                    <span id="emergency">-</span>
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ORDERS -->
+
+        <div class="orders">
+
+            <h2>Recent Orders</h2>
+
+            <div class="order-item">
+                <span>Dolo 650 x2</span>
+                <span>Delivered</span>
+            </div>
+
+            <div class="order-item">
+                <span>Azithromycin x1</span>
+                <span>Processing</span>
+            </div>
+
+            <div class="order-item">
+                <span>Crocin x3</span>
+                <span>Delivered</span>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="4c93f23b-40ba-47ba-9b1c-cd9dc24b8b6d";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();
+
+const profile =
+JSON.parse(
+localStorage.getItem(
+"customerProfile"
+)
+);
+
+if(profile){
+
+document.getElementById("custName")
+.innerText = profile.name;
+
+document.getElementById("custNameHero")
+.innerText = profile.name;
+
+document.getElementById("custPhone")
+.innerText = profile.phone;
+
+document.getElementById("custEmail")
+.innerText = profile.email;
+
+document.getElementById("custBlood")
+.innerText = profile.blood;
+
+document.getElementById("custDob")
+.innerText = profile.dob;
+
+document.getElementById("doctorName")
+.innerText = profile.doctorName;
+
+document.getElementById("doctorPhone")
+.innerText = profile.doctorPhone;
+
+document.getElementById("hospital")
+.innerText = profile.hospital;
+
+document.getElementById("allergies")
+.innerText = profile.allergies;
+
+document.getElementById("conditions")
+.innerText = profile.conditions;
+
+document.getElementById("emergency")
+.innerText = profile.emergencyPhone;
+
+}
+
+function logout(){
+
+    localStorage.clear();
+
+   window.location.href =
+"http://127.0.0.1:5501/frontend/frontendpages/login2.html";
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Nearby Pharmacies</title>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- LEAFLET CSS -->
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <!-- ROUTING CSS -->
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"/>
+
+
+
+
+
+    <!-- INTERNAL CSS -->
+    <style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif;
+    }
+
+    body{
+        background:#f4f5f9;
+    }
+
+    /* DASHBOARD LAYOUT */
+
+    .dashboard-layout{
+        display:flex;
+    }
+
+
+
+
+
+
+    /* SIDEBAR */
+
+    .dashboard-sidebar{
+
+        width:260px;
+        height:100vh;
+
+        background:
+        linear-gradient(to bottom,#10c9a7,#0f82ff);
+
+        color:white;
+
+        position:fixed;
+
+        top:0;
+        left:0;
+
+        padding:25px;
+
+        overflow-y:auto;
+
+    }
+
+
+
+
+
+
+    /* LOGO */
+
+    .dashboard-logo{
+        text-align:center;
+        margin-bottom:40px;
+    }
+
+    .dashboard-logo-img{
+        width:120px;
+        margin-bottom:15px;
+    }
+
+    .dashboard-logo h1{
+        font-size:36px;
+    }
+
+
+
+
+
+
+    /* MENU */
+
+    .dashboard-menu{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .dashboard-menu a{
+
+        color:white;
+
+        text-decoration:none;
+
+        padding:14px;
+
+        border-radius:12px;
+
+        transition:0.3s;
+
+        font-size:18px;
+
+    }
+
+    .dashboard-menu a:hover{
+        background:rgba(255,255,255,0.2);
+    }
+
+
+
+
+
+
+    /* MAIN CONTENT */
+
+    .dashboard-main{
+
+        margin: left 240px;
+
+        width:calc(100% - 260px);
+
+        padding:30px;
+
+    }
+
+
+
+
+
+
+    /* TOPBAR */
+
+    .dashboard-topbar{
+        margin-bottom:30px;
+    }
+
+    .dashboard-topbar input{
+
+        width:100%;
+
+        padding:16px;
+
+        border:none;
+
+        border-radius:12px;
+
+        font-size:16px;
+
+        background:white;
+
+    }
+
+
+
+
+
+
+    /* TITLE */
+
+    .page-title{
+        margin-bottom:20px;
+        color:#083b66;
+        font-size:35px;
+    }
+
+
+
+
+
+
+    /* SEARCH */
+
+    .pharmacy-search{
+
+        display:flex;
+
+        gap:10px;
+
+        margin-bottom:25px;
+
+    }
+
+    .pharmacy-search input{
+
+        flex:1;
+
+        padding:14px;
+
+        border:none;
+
+        border-radius:10px;
+
+        font-size:16px;
+
+    }
+
+    .pharmacy-search button{
+
+        background:#10c9a7;
+
+        color:white;
+
+        border:none;
+
+        padding:14px 25px;
+
+        border-radius:10px;
+
+        cursor:pointer;
+
+        font-size:16px;
+
+    }
+
+
+
+
+
+
+    /* MAP */
+
+    #map{
+
+        width:100%;
+
+        height:600px;
+
+        border-radius:15px;
+
+        overflow:hidden;
+
+        margin-bottom:30px;
+
+    }
+
+
+
+
+
+
+    /* PHARMACY CARDS */
+
+    #pharmacyList{
+
+        display:grid;
+
+        grid-template-columns:
+        repeat(auto-fit,minmax(250px,1fr));
+
+        gap:20px;
+
+    }
+
+    .pharmacy-card{
+
+        background:white;
+
+        padding:20px;
+
+        border-radius:15px;
+
+        box-shadow:0 2px 10px rgba(0,0,0,0.1);
+
+    }
+
+    .pharmacy-card h3{
+        margin-bottom:10px;
+    }
+
+    .pharmacy-card p{
+        color:gray;
+        margin-bottom:15px;
+    }
+
+    .pharmacy-card button{
+
+        background:#10c9a7;
+
+        color:white;
+
+        border:none;
+
+        padding:10px 15px;
+
+        border-radius:8px;
+
+        cursor:pointer;
+
+    }
+
+
+
+
+
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+        .dashboard-sidebar{
+
+            width:100%;
+
+            height:auto;
+
+            position:relative;
+
+        }
+
+        .dashboard-main{
+
+            margin-left:0;
+
+            width:100%;
+
+        }
+
+    }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+
+
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="dashboard-sidebar">
+
+        <div class="dashboard-logo">
+
+            <img src="newlogo.jpeg"
+            class="dashboard-logo-img">
+
+            <h1>PharmaSync</h1>
+
+        </div>
+
+
+
+
+
+        <!-- MENU -->
+
+        <nav class="dashboard-menu">
+
+            <a href="customer-dashboard2.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="medicines.html">
+                💊 Medicines
+            </a>
+
+            <a href="Maps.html">
+                📍 Nearby Pharmacy
+            </a>
+
+            <a href="prescriptions.html">
+                📄 Prescriptions
+            </a>
+
+            <a href="cart.html">
+                🛒 Orders
+            </a>
+            <a href="qr-scan.html">
+                📷 QR Scanner
+            </a>
+
+
+            <a href="#" onclick="logout()">
+🚪 Logout
+</a>
+            <!-- <a href="notifications.html">
+                🔔 Notifications
+            </a> -->
+        </nav>
+
+    </aside>
+
+
+
+
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TITLE -->
+
+        <h2 class="page-title">
+            Nearby Pharmacies
+        </h2>
+
+
+
+
+
+        <!-- SEARCH -->
+
+        <div class="pharmacy-search">
+
+            <input type="text"
+            id="searchInput"
+            placeholder="Search pharmacy...">
+
+            <button onclick="searchShop()">
+                Search
+            </button>
+
+        </div>
+
+
+
+
+
+        <!-- MAP -->
+
+        <div id="map"></div>
+
+
+
+
+
+        <!-- PHARMACY CARDS -->
+
+        <div id="pharmacyList"></div>
+
+    </main>
+
+</div>
+
+
+
+
+
+
+<!-- LEAFLET JS -->
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<!-- ROUTING JS -->
+
+<script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+
+
+
+
+
+
+<script>
+
+// INITIAL MAP
+
+const map = L.map('map')
+.setView([18.5204,73.8567],13);
+
+
+
+
+// MAP TILES
+
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+    attribution:'© OpenStreetMap'
+}).addTo(map);
+
+
+
+
+// CUSTOM ICON
+
+const pharmacyIcon = L.icon({
+
+    iconUrl:
+    'https://cdn-icons-png.flaticon.com/512/4320/4320337.png',
+
+    iconSize:[40,40]
+
+});
+
+
+
+
+// USER LOCATION
+
+let userLat,userLng;
+
+if(navigator.geolocation){
+
+    navigator.geolocation.getCurrentPosition(
+    function(position){
+
+        userLat = position.coords.latitude;
+        userLng = position.coords.longitude;
+
+        L.marker([userLat,userLng])
+        .addTo(map)
+        .bindPopup("You are here")
+        .openPopup();
+
+        map.setView([userLat,userLng],14);
+
+    });
+
+}
+
+
+
+
+// PHARMACY DATA
+
+const medicalShops = [
+
+{ 
+    name:"Chintamani Medical", 
+    lat:18.455859, 
+    lng:73.873303 
+},
+{ 
+    name:"Suvarnayug Medical", 
+    lat:18.462807, 
+    lng:73.867218 
+}, 
+{ 
+    name:"Metro Medical", 
+    lat:18.460717, 
+    lng:73.869031 
+}, 
+{ 
+    name:"Aai Medical", 
+    lat:18.460908, 
+    lng:73.870337 
+}, 
+{ 
+    name:"Lifeline Medical", 
+    lat:18.463374, 
+    lng:73.866222 
+}, 
+{ 
+    name:"Harsh Medical", 
+    lat:18.465125, 
+    lng:73.868830 
+}, 
+{ 
+    name:"Sai Medical", 
+    lat:18.462816, 
+    lng:73.867252 
+}, 
+{ 
+    name:"Mahavir Medical", 
+    lat:18.460992, 
+    lng:73.866996 
+}, 
+{ 
+    name:"Unity Medicare", 
+    lat:18.461749, 
+    lng:73.865542 
+}, 
+{ 
+    name:"Medplus Bibewadi", 
+    lat:18.481982, 
+    lng:73.861024 
+}, 
+{ 
+    name:"Mahesh Medical", 
+    lat:18.472797, 
+    lng:73.865146 
+},
+
+];
+
+
+
+
+// ADD MARKERS + CARDS
+
+medicalShops.forEach(shop=>{
+
+    // MARKER
+
+    const marker = L.marker(
+        [shop.lat,shop.lng],
+        {icon:pharmacyIcon}
+    ).addTo(map);
+
+
+
+
+    // POPUP
+
+    marker.bindPopup(`
+
+        <b>${shop.name}</b>
+
+        <br>
+
+        ${shop.address}
+
+        <br><br>
+
+        <button onclick="
+        getDirections(${shop.lat},${shop.lng})
+        ">
+        Get Directions
+        </button>
+
+    `);
+
+
+
+
+    // CARD
+
+    document.getElementById("pharmacyList")
+    .innerHTML += `
+
+    <div class="pharmacy-card">
+
+        <h3>${shop.name}</h3>
+
+        <p>${shop.address}</p>
+
+        <button onclick="
+        focusShop(${shop.lat},${shop.lng})
+        ">
+        View on Map
+        </button>
+
+    </div>
+
+    `;
+
+});
+
+
+
+
+// SEARCH FUNCTION
+
+function searchShop(){
+
+    const input = document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+    const found = medicalShops.find(shop =>
+
+        shop.name
+        .toLowerCase()
+        .includes(input)
+
+    );
+
+    if(found){
+
+        map.setView(
+        [found.lat,found.lng],
+        17
+        );
+
+    }
+
+    else{
+
+        alert("Medical shop not found");
+
+    }
+
+}
+
+
+
+
+// FOCUS SHOP
+
+function focusShop(lat,lng){
+
+    map.setView([lat,lng],17);
+
+}
+
+
+
+
+// ROUTING
+
+let routingControl;
+
+function getDirections(shopLat,shopLng){
+
+    if(!userLat || !userLng){
+
+        alert("User location not found");
+        return;
+
+    }
+
+
+    // REMOVE OLD ROUTE
+
+    if(routingControl){
+
+        map.removeControl(routingControl);
+
+    }
+
+
+    routingControl = L.Routing.control({
+
+        waypoints:[
+
+            L.latLng(userLat,userLng),
+
+            L.latLng(shopLat,shopLng)
+
+        ],
+
+        routeWhileDragging:false
+
+    }).addTo(map);
+
+}
+
+</script>
+
+</body>
+</html>

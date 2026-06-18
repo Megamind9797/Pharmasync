@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PharmaSync - Contact Us</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="register.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4fbf8;
+    min-height:100vh;
+}
+
+/* =======================
+   NAVBAR
+======================= */
+
+/* NAVBAR */
+nav{
+    width:100%;
+    height:95px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 90px;
+    box-shadow:0 3px 20px rgba(0,0,0,0.04);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo img{
+    height:45px;
+    width:45px;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:34px;
+    font-weight:700;
+    color:#22b573;
+    letter-spacing:1px;
+}
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:45px;
+    align-items:center;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#173f34;
+    font-size:18px;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#22b573;
+}
+
+.active{
+    color:#22b573;
+    position:relative;
+}
+
+.active::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:3px;
+    border-radius:20px;
+    background:#22b573;
+}
+
+.register-btn{
+    background:linear-gradient(to right,#22c67a,#49de90);
+    padding:14px 30px;
+    border-radius:35px;
+    color:white !important;
+    box-shadow:0 12px 25px rgba(34,198,122,0.25);
+}
+
+/* =======================
+   CONTACT SECTION
+======================= */
+
+.contact-section{
+    max-width:1400px;
+    margin:70px auto;
+    padding:0 50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:100px;
+}
+
+/* Contact Card */
+
+.contact-card{
+    width:400px;
+    background:#fff;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+.contact-card .main-icon{
+    color:#063b3b;
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.contact-card h1{
+    font-size:3.5rem;
+    color:#063b3b;
+    line-height:1.2;
+    margin-bottom:30px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group i{
+    display:block;
+    color:#063b3b;
+    margin-bottom:8px;
+}
+
+.input-group input,
+.input-group textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #e4e4e4;
+    border-radius:15px;
+    outline:none;
+    font-size:15px;
+}
+
+.input-group textarea{
+    height:120px;
+    resize:none;
+}
+
+.contact-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(to right,#2fd16f,#56e0a6);
+    color:#fff;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-btn:hover{
+    transform:translateY(-3px);
+}
+
+/* Right Content */
+
+.contact-info{
+    max-width:650px;
+}
+
+.contact-info h1{
+    font-size:4rem;
+    color:#063b3b;
+    line-height:1.2;
+    margin-bottom:25px;
+}
+
+.contact-info p{
+    color:#555;
+    font-size:1.15rem;
+    line-height:1.8;
+    margin-bottom:50px;
+}
+
+.features{
+    display:flex;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.feature{
+    flex:1;
+    min-width:170px;
+}
+
+.feature i{
+    font-size:2.5rem;
+    color:#34d27c;
+    margin-bottom:15px;
+}
+
+.feature h3{
+    color:#063b3b;
+    margin-bottom:10px;
+    font-size:1.3rem;
+}
+
+.feature p{
+    font-size:1rem;
+    margin:0;
+    line-height:1.6;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media(max-width:992px){
+
+    .navbar{
+        padding:20px;
+        flex-direction:column;
+        height:auto;
+        gap:20px;
+    }
+
+    .nav-links{
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .contact-section{
+        flex-direction:column;
+        text-align:center;
+        gap:50px;
+    }
+
+    .contact-card{
+        width:100%;
+        max-width:450px;
+    }
+
+    .features{
+        justify-content:center;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+
+        <img src="newlogo.jpeg" alt="Logo">
+
+        <span>PharmaSync</span>
+
+    </div>
+
+    <ul>
+
+        <li><a href="index1.html" class="active">Home</a></li>
+        <li><a href="about1.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login2.html">Login</a></li>
+        <li><a href="register1.html" class="register-btn">Register</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- CONTACT SECTION -->
+
+<section class="contact-section">
+
+    <!-- Left Form -->
+
+    <div class="contact-card">
+
+        <i class="fas fa-envelope-open-text main-icon"></i>
+
+        <h1>Contact<br>Us</h1>
+
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Enter Name">
+        </div>
+
+        <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Enter Email">
+        </div>
+
+        <div class="input-group">
+            <i class="fas fa-tag"></i>
+            <input type="text" placeholder="Subject">
+        </div>
+
+        <div class="input-group">
+            <i class="fas fa-comment"></i>
+            <textarea placeholder="Write your message"></textarea>
+        </div>
+
+        <button class="contact-btn">Send Message</button>
+
+    </div>
+
+    <!-- Right Content -->
+
+    <div class="contact-info">
+
+        <h1>We're here,<br>for your care.</h1>
+
+        <p>
+            Have questions about medicines, prescriptions, deliveries,
+            or your PharmaSync account? Our dedicated support team is
+            ready to assist you. Reach out to us anytime and we'll help
+            make your healthcare experience smooth, simple, and reliable.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Call Us</h3>
+                <p>+94 77 123 4567</p>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p>support@pharmasync.com</p>
+            </div>
+
+            <div class="feature">
+                <i class="fas fa-headset"></i>
+                <h3>24/7 Support</h3>
+                <p>Always available whenever you need assistance.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

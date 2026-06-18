@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PharmaSync</title>
+
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f7fcf9;
+    overflow-x:hidden;
+    color:#083b2d;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    height:95px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 90px;
+    box-shadow:0 3px 20px rgba(0,0,0,0.04);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo img{
+    height:120px;
+    width:120px;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:34px;
+    font-weight:700;
+    color:#22b573;
+    letter-spacing:1px;
+}
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:45px;
+    align-items:center;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#173f34;
+    font-size:18px;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#22b573;
+}
+
+.active{
+    color:#22b573;
+    position:relative;
+}
+
+.active::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:3px;
+    border-radius:20px;
+    background:#22b573;
+}
+
+.register-btn{
+    background:linear-gradient(to right,#22c67a,#49de90);
+    padding:14px 30px;
+    border-radius:35px;
+    color:white !important;
+    box-shadow:0 12px 25px rgba(34,198,122,0.25);
+}
+
+/* HERO SECTION */
+
+.hero{
+    width:100%;
+    min-height:calc(100vh - 95px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:60px 90px;
+    position:relative;
+}
+
+/* LEFT */
+
+.left{
+    width:48%;
+    z-index:2;
+}
+
+.tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:#ebfaf3;
+    color:#22b573;
+    padding:12px 24px;
+    border-radius:40px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+.left h1{
+    font-size:82px;
+    line-height:1.1;
+    margin-bottom:30px;
+    font-weight:800;
+}
+
+.left h1 span{
+    color:#22c67a;
+}
+
+.left p{
+    font-size:22px;
+    line-height:1.9;
+    color:#64746f;
+    margin-bottom:40px;
+}
+
+/* BUTTON */
+
+.hero-btn{
+    width:230px;
+    height:70px;
+    border:none;
+    border-radius:40px;
+    background:linear-gradient(to right,#22c67a,#49de90);
+    color:white;
+    font-size:22px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    transition:.3s;
+    box-shadow:0 15px 30px rgba(34,198,122,0.25);
+}
+
+.hero-btn:hover{
+    transform:translateY(-5px);
+}
+
+/* FEATURES */
+
+.feature-boxes{
+    margin-top:55px;
+    display:flex;
+    gap:25px;
+}
+
+.feature{
+    width:200px;
+    background:white;
+    border-radius:30px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    transition:.3s;
+}
+
+.feature:hover{
+    transform:translateY(-8px);
+}
+
+.feature i{
+    width:70px;
+    height:70px;
+    background:#eefbf4;
+    color:#22b573;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:auto;
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.feature h3{
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.feature p{
+    font-size:15px;
+    line-height:1.7;
+    color:#788681;
+}
+
+/* RIGHT */
+
+.right{
+    width:45%;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.circle-bg{
+    position:absolute;
+    width:850px;
+    height:850px;
+    background:radial-gradient(circle,#dff7ea,#f7fcf9);
+    border-radius:50%;
+    right:-250px;
+    top:-180px;
+    z-index:-1;
+}
+
+/* ILLUSTRATION */
+
+.illustration{
+    width:650px;
+    height:650px;
+    position:relative;
+    animation:float 5s ease-in-out infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* PHONE */
+
+.phone{
+    width:180px;
+    height:360px;
+    background:#111;
+    border-radius:40px;
+    position:absolute;
+    left:40px;
+    top:130px;
+    box-shadow:0 25px 50px rgba(0,0,0,0.15);
+    padding:15px;
+}
+
+.phone-screen{
+    width:100%;
+    height:100%;
+    background:linear-gradient(to bottom,#29d67d,#1ca865);
+    border-radius:28px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+.phone-screen i{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.phone-screen h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.phone-screen p{
+    font-size:20px;
+    line-height:1.5;
+}
+
+/* PHARMACY SHELF */
+
+.shelf{
+    width:330px;
+    height:420px;
+    background:white;
+    border-radius:30px;
+    position:absolute;
+    right:70px;
+    top:70px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+.shelf-top{
+    width:100%;
+    height:90px;
+    background:linear-gradient(to right,#29d67d,#1ebd6f);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    font-size:36px;
+    font-weight:700;
+}
+
+.shelf-content{
+    padding:30px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+}
+
+.box{
+    width:70px;
+    height:90px;
+    background:white;
+    border-radius:16px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    position:relative;
+}
+
+.box::before{
+    content:'';
+    position:absolute;
+    width:40px;
+    height:10px;
+    background:#d7f7e4;
+    border-radius:20px;
+    top:20px;
+    left:15px;
+}
+
+.box::after{
+    content:'';
+    position:absolute;
+    width:28px;
+    height:10px;
+    background:#d7f7e4;
+    border-radius:20px;
+    top:40px;
+    left:15px;
+}
+
+.green{
+    background:linear-gradient(to bottom,#29d67d,#1ebd6f);
+}
+
+/* SHIELD */
+
+.shield{
+    width:120px;
+    height:130px;
+    background:white;
+    clip-path:polygon(50% 0%,100% 20%,100% 65%,50% 100%,0% 65%,0% 20%);
+    position:absolute;
+    right:30px;
+    bottom:40px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#22c67a;
+    font-size:55px;
+}
+
+/* MORTAR */
+
+.mortar{
+    width:170px;
+    height:110px;
+    background:white;
+    border-radius:0 0 90px 90px;
+    position:absolute;
+    left:-20px;
+    bottom:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.08);
+}
+
+.stick{
+    width:28px;
+    height:130px;
+    background:#efefef;
+    border-radius:20px;
+    position:absolute;
+    right:25px;
+    top:-60px;
+    transform:rotate(35deg);
+}
+
+.leaf{
+    width:45px;
+    height:22px;
+    background:#45d989;
+    border-radius:50px 0 50px 0;
+    position:absolute;
+}
+
+.leaf1{
+    left:40px;
+    top:40px;
+    transform:rotate(-20deg);
+}
+
+.leaf2{
+    left:75px;
+    top:32px;
+    transform:rotate(25deg);
+}
+
+/* PILLS */
+
+.pill{
+    width:65px;
+    height:25px;
+    background:white;
+    border-radius:30px;
+    position:absolute;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.pill::before{
+    content:'';
+    width:50%;
+    height:100%;
+    background:#29d67d;
+    position:absolute;
+    left:0;
+    border-radius:30px 0 0 30px;
+}
+
+.p1{
+    left:170px;
+    bottom:20px;
+    transform:rotate(-20deg);
+}
+
+.p2{
+    left:250px;
+    bottom:60px;
+    transform:rotate(12deg);
+}
+
+/* PLANT */
+
+.plant{
+    position:absolute;
+    right:-20px;
+    top:250px;
+}
+
+.pot{
+    width:100px;
+    height:90px;
+    background:white;
+    border-radius:0 0 30px 30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.plant-leaf{
+    width:55px;
+    height:90px;
+    background:linear-gradient(to bottom,#5ee192,#29c86e);
+    border-radius:60px 60px 0 60px;
+    position:absolute;
+}
+
+.pl1{
+    left:0;
+    top:-90px;
+    transform:rotate(-35deg);
+}
+
+.pl2{
+    left:50px;
+    top:-120px;
+    transform:rotate(30deg);
+}
+
+.pl3{
+    left:-10px;
+    top:-160px;
+    transform:rotate(-50deg);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1400px){
+
+    .hero{
+        flex-direction:column;
+        gap:60px;
+    }
+
+    .left{
+        width:100%;
+        text-align:center;
+    }
+
+    .feature-boxes{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .right{
+        width:100%;
+    }
+
+}
+
+@media(max-width:768px){
+
+    nav{
+        padding:0 20px;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        padding:40px 20px;
+    }
+
+    .left h1{
+        font-size:52px;
+    }
+
+    .left p{
+        font-size:18px;
+    }
+
+    .illustration{
+        transform:scale(.7);
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+
+        <img src="newlogo.jpeg" alt="Logo">
+
+        <span>PharmaSync</span>
+
+    </div>
+
+    <ul>
+
+        <li><a href="index1.html" class="active">Home</a></li>
+        <li><a href="about1.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login2.html">Login</a></li>
+        <li><a href="register1.html" class="register-btn">Register</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <!-- LEFT -->
+
+    <div class="left">
+
+        <div class="tag">
+            <i class="fa-solid fa-shield-heart"></i>
+            Smart. Secure. Simplified.
+        </div>
+
+        <h1>
+            Smart <span>Pharmacy</span><br>
+            Management System
+        </h1>
+
+        <p>
+            PharmaSync helps customers, pharmacy owners and admins
+            manage medicines, prescriptions, orders, notifications
+            and smart QR medicine awareness all in one platform.
+        </p>
+
+        <button class="hero-btn">
+            <a href="register1.html">Get Started
+            <i class="fa-solid fa-arrow-right"></i></a>
+        </button>
+
+        <!-- FEATURES -->
+
+        <div class="feature-boxes">
+
+            <div class="feature">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <h3>Secure</h3>
+
+                <p>
+                    Top-notch data protection and secure access.
+                </p>
+
+            </div>
+
+            <div class="feature">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <h3>Fast</h3>
+
+                <p>
+                    Real-time sync and quick medicine updates.
+                </p>
+
+            </div>
+
+            <div class="feature">
+
+                <i class="fa-solid fa-qrcode"></i>
+
+                <h3>Smart QR</h3>
+
+                <p>
+                    Scan medicines and verify authenticity easily.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="right">
+
+        <div class="circle-bg"></div>
+
+        <div class="illustration">
+
+            <!-- PHONE -->
+
+            <div class="phone">
+
+                <div class="phone-screen">
+
+                    <i class="fa-solid fa-notes-medical"></i>
+
+                    <h2>PharmaSync</h2>
+
+                    <p>
+                        Your Health,<br>
+                        Our Priority
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- SHELF -->
+
+            <div class="shelf">
+
+                <div class="shelf-top">
+
+                    <i class="fa-solid fa-cross"></i>
+
+                    PHARMACY
+
+                </div>
+
+                <div class="shelf-content">
+
+                    <div class="row">
+
+                        <div class="box"></div>
+                        <div class="box"></div>
+                        <div class="box green"></div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="box green"></div>
+                        <div class="box"></div>
+                        <div class="box"></div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="box"></div>
+                        <div class="box green"></div>
+                        <div class="box"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SHIELD -->
+
+            <div class="shield">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <!-- MORTAR -->
+
+            <div class="mortar">
+
+                <div class="stick"></div>
+
+                <div class="leaf leaf1"></div>
+                <div class="leaf leaf2"></div>
+
+            </div>
+
+            <!-- PILLS -->
+
+            <div class="pill p1"></div>
+            <div class="pill p2"></div>
+
+            <!-- PLANT -->
+
+            <div class="plant">
+
+                <div class="pot"></div>
+
+                <div class="plant-leaf pl1"></div>
+                <div class="plant-leaf pl2"></div>
+                <div class="plant-leaf pl3"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

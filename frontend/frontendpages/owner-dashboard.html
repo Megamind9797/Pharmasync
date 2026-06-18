@@ -1,0 +1,540 @@
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Owner Dashboard</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+          
+
+</head>
+
+<body>
+
+    ================= NAVBAR =================
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            PharmaSync Owner
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="owner-dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="owner-medicines.html">
+                Medicines
+            </a>
+
+            <a href="owner-orders.html">
+                Orders
+            </a>
+
+            <a href="index.html">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+     ================= PAGE ================= 
+
+    <section
+        style="
+        padding:60px 8%;
+        ">
+
+        <h1
+            style="
+            font-size:55px;
+            margin-bottom:20px;
+            ">
+
+            Pharmacy Owner
+            <span style="color:#059669;">
+                Dashboard
+            </span>
+
+        </h1>
+
+        <p
+            style="
+            font-size:18px;
+            margin-bottom:50px;
+            ">
+
+            Manage medicines,
+            inventory,
+            orders,
+            AI analytics,
+            and healthcare operations.
+
+        </p>
+
+
+         ================= DASHBOARD CARDS ================= 
+
+        <div
+            style="
+            display:grid;
+            grid-template-columns:
+            repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+            ">
+
+
+             ADD MEDICINE 
+
+            <a
+                href="add-medicine.html"
+
+                style="text-decoration:none;">
+
+                <div class="glass-card">
+
+                    <h2
+                        style="
+                        color:#059669;
+                        margin-bottom:15px;
+                        ">
+
+                        ➕ Add Medicines
+
+                    </h2>
+
+                    <p>
+
+                        Add new medicines,
+                        stock,
+                        pricing,
+                        and expiry details.
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+             MEDICINES 
+
+            <a
+                href="owner-medicines.html"
+
+                style="text-decoration:none;">
+
+                <div class="glass-card">
+
+                    <h2
+                        style="
+                        color:#059669;
+                        margin-bottom:15px;
+                        ">
+
+                        💊 Manage Medicines
+
+                    </h2>
+
+                    <p>
+
+                        Update stock,
+                        pricing,
+                        and medicine inventory.
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            ORDERS 
+
+            <a
+                href="owner-orders.html"
+
+                style="text-decoration:none;">
+
+                <div class="glass-card">
+
+                    <h2
+                        style="
+                        color:#059669;
+                        margin-bottom:15px;
+                        ">
+
+                        📦 Customer Orders
+
+                    </h2>
+
+                    <p>
+
+                        Track customer orders
+                        and medicine requests.
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+             LOW STOCK 
+
+            <a
+                href="low-stock.html"
+
+                style="text-decoration:none;">
+
+                <div class="glass-card">
+
+                    <h2
+                        style="
+                        color:#059669;
+                        margin-bottom:15px;
+                        ">
+
+                        ⚠ Low Stock Alerts
+
+                    </h2>
+
+                    <p>
+
+                        Monitor low-stock medicines
+                        and inventory shortages.
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+         EXPIRY 
+
+            <a
+                href="expiry-warning.html"
+
+                style="text-decoration:none;">
+
+                <div class="glass-card">
+
+                    <h2
+                        style="
+                        color:#059669;
+                        margin-bottom:15px;
+                        ">
+
+                        ⏳ Expiry Warnings
+
+                    </h2>
+
+                    <p>
+
+                        Track medicines
+                        nearing expiry dates.
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+             NOTIFICATIONS 
+
+            <a
+                href="notifications.html"
+
+                style="text-decoration:none;">
+
+                <div class="glass-card">
+
+                    <h2
+                        style="
+                        color:#059669;
+                        margin-bottom:15px;
+                        ">
+
+                        🔔 Notifications
+
+                    </h2>
+
+                    <p>
+
+                        View system alerts,
+                        stock updates,
+                        and notifications.
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+             OCR REQUESTS
+
+            <a
+                href="prescription-requests.html"
+
+                style="text-decoration:none;">
+
+                <div class="glass-card">
+
+                    <h2
+                        style="
+                        color:#059669;
+                        margin-bottom:15px;
+                        ">
+
+                        📄 Prescription Requests
+
+                    </h2>
+
+                    <p>
+
+                        Review uploaded
+                        customer prescriptions.
+
+                    </p>
+
+                </div>
+
+            </a>
+
+
+             AI SALES 
+
+            <a
+                href="sales-prediction.html"
+
+                style="text-decoration:none;">
+
+                <div class="glass-card">
+
+                    <h2
+                        style="
+                        color:#059669;
+                        margin-bottom:15px;
+                        ">
+
+                        🤖 AI Sales Prediction
+
+                    </h2>
+
+                    <p>
+
+                        View AI-powered
+                        pharmacy sales analytics.
+
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+     ================= FOOTER ================= 
+
+    <footer class="footer">
+
+        © 2026 PharmaSync |
+        All Rights Reserved
+
+    </footer>
+
+</body>
+
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PharmaSync Owner Dashboard</title>
+
+    <link rel="stylesheet" href="owner.css">
+
+    <!-- ICONS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+
+        <div class="sidebar">
+
+            <div class="logo-section">
+
+                <img src="newlogo.jpeg" class="logo">
+
+                <h2>PharmaSync</h2>
+
+                <p>Owner Panel</p>
+
+            </div>
+
+            <ul class="menu">
+
+               <ul class="menu">
+
+    <a href="owner-dashboard.html">
+        <li class="active">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+        </li>
+    </a>
+
+    <a href="owner-medicines.html">
+        <li>
+            <i class="fa-solid fa-pills"></i>
+            Medicines
+        </li>
+    </a>
+
+    <a href="owner-orders.html">
+        <li>
+            <i class="fa-solid fa-cart-shopping"></i>
+            Orders
+        </li>
+    </a>
+
+    <a href="owner-stock.html">
+        <li>
+            <i class="fa-solid fa-boxes-stacked"></i>
+            Stock
+        </li>
+    </a>
+
+    <a href="owner-analytics.html">
+        <li>
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+        </li>
+    </a>
+
+    <a href="owner-settings.html">
+        <li>
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </li>
+    </a>
+
+    <a href="owner-profile.html">
+        <li>
+            <i class="fa-solid fa-user"></i>
+            Profile
+        </li>
+    </a>
+
+    <a href="#" onclick="logout()">
+🚪 Logout
+</a>
+
+</ul>
+        </div>
+
+        <!-- MAIN -->
+
+        <div class="main-content">
+
+            <!-- NAVBAR -->
+
+            <div class="navbar">
+
+                <!-- <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input type="text"
+                        placeholder="Search medicines, orders, customers...">
+
+                </div> -->
+
+                <div class="nav-icons">
+
+    <a href="owner-notification.html"
+       class="notification-link">
+
+        <i class="fa-regular fa-bell"></i>
+
+        <span id="notificationCount">
+            0
+        </span>
+
+    </a>
+
+</div>
+
+            </div>
+
+            <!-- WELCOME -->
+
+            <div class="welcome-section">
+
+                <h1>Welcome Back, Owner 👋</h1>
+
+                <p>Here’s what’s happening with your pharmacy today.</p>
+
+            </div>
+
+            <!-- CARDS -->
+
+          <div class="card">
+
+    <h2 id="totalMedicines">0</h2>
+
+    <p>Total Medicines</p>
+
+</div>
+
+<div class="card">
+
+    <h2 id="totalStock">0</h2>
+
+    <p>Total Stock</p>
+
+</div>
+
+        </div>
+
+    </div>
+<script src="owner.js"></script>
+</body>
+
+</html>
