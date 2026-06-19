@@ -1078,6 +1078,6 @@ function logout(){
     localStorage.clear();
 
    window.location.href =
-"http://127.0.0.1:5501/frontend/frontendpages/login2.html";
+"https://pharmasync-74to.onrender.com//frontend/frontendpages/login2.html";
 }
 
