@@ -583,8 +583,23 @@ fetch("https://pharmasync-74to.onrender.com/all-medicines")
 .then(medicines => {
 
     const grid = document.getElementById("medicineGrid");
+    const uniqueMedicines = [];
+    const seen = new Set();
 
-    medicines.forEach(medicine => {
+    medicines.forEach(med => {
+
+    let key = med[0]
+    .toLowerCase()
+    .replace(/\s+/g,'');
+
+    if(!seen.has(key)){
+    seen.add(key);
+    uniqueMedicines.push(med);
+    }
+
+    });
+
+    uniqueMedicines.forEach(medicine => {
 
         grid.innerHTML += `
         <div class="medicine-card">
