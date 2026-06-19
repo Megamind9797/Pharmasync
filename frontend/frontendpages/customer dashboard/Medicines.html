@@ -589,7 +589,8 @@ fetch("https://pharmasync-74to.onrender.com/all-medicines")
         grid.innerHTML += `
         <div class="medicine-card">
 
-            <img src="images/default-medicine.jpeg">
+            <img src="images/${medicine[0].toLowerCase().replace(/\s+/g,'')}.jpeg"
+            onerror="this.src='images/default-medicine.jpeg'">
 
             <div class="medicine-info">
 
