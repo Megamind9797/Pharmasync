@@ -291,7 +291,7 @@ font-weight:600;
 
             <input
                 type="text"
-                id="searchBox"
+                id="searchInput"
                 placeholder="Search medicines..."
             >
 
@@ -641,6 +641,36 @@ document.addEventListener("click", function(e){
 
 });
 
+
+document
+.getElementById("searchInput")
+.addEventListener("input", function(){
+
+let search =
+this.value.toLowerCase();
+
+let cards =
+document.querySelectorAll(".medicine-card");
+
+cards.forEach(card=>{
+
+let medicineName =
+card.querySelector("h3")
+.innerText
+.toLowerCase();
+
+if(
+medicineName.includes(search)
+){
+card.style.display="block";
+}
+else{
+card.style.display="none";
+}
+
+});
+
+});
 </script>
 
 </body>
