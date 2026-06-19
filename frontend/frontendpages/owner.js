@@ -1078,6 +1078,6 @@ function logout(){
     localStorage.clear();
 
    window.location.href =
-"https://pharmasync-74to.onrender.com/frontend/frontendpages/login2.html";
+"https://pharmasync1.netlify.app/frontend/frontendpages/login2.html";
 }
 
