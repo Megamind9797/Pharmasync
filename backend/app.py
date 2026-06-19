@@ -1106,7 +1106,7 @@ def scan_qr(code):
 
 </html>
 
-""".gitignore
+"""
 
     return render_template_string(html)
 
