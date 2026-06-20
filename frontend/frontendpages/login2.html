@@ -822,6 +822,9 @@ nav ul li a:hover{
     const instruction =
     document.getElementById("instruction");
 
+    const leftContent =
+      document.getElementById("leftContent");
+
     if(isOn){
 
         body.classList.add("on");
@@ -829,6 +832,8 @@ nav ul li a:hover{
         loginCard.classList.add("active");
 
         instruction.remove();
+
+        leftContent.classList.add("active");
     }
 
     else{
@@ -836,6 +841,8 @@ nav ul li a:hover{
         body.classList.remove("on");
 
         loginCard.classList.remove("active");
+
+        leftContent.classList.remove("active");
     }
 }    
 
